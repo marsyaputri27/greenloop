@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk & Daftar - GreenLoop</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='lib/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Panggil CSS -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<!-- Slideshow Background di Belakang Container -->
+<div class="bg-slideshow">
+    <div class="slide-img" style="background-image: url('assets/hero1.jpg')"></div>
+    <div class="slide-img" style="background-image: url('assets/hero2.jpg')"></div>
+    <div class="slide-img" style="background-image: url('assets/hero3.jpg')"></div>
+</div>
+    <!-- Lapisan Gelap Transparan agar Kontainer Terlihat Menonjol -->
+    <div class="bg-overlay"></div>
+
+    <div class="container animate-on-load" id="container">
+        
+        <!-- 1. FORM REGISTRASI -->
+        <div class="form-container sign-up-container">
+            <form id="registerForm">
+                <h1>Registrasi</h1>
+                
+                <div class="input-group">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username" required />
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="email" placeholder="Email" required />
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Kata Sandi" required />
+                </div>
+                
+                <!-- Diubah menjadi type submit agar bisa dicegat script -->
+                <button type="submit" class="btn-gradient">Daftar</button>
+                
+                <p class="social-text">atau daftar menggunakan sosial media</p>
+                <div class="social-container">
+                    <a href="#" class="social"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="social"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="social"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- 2. FORM LOGIN -->
+        <div class="form-container sign-in-container">
+            <form id="loginForm">
+                <h1>Login</h1>
+                
+                <div class="input-group">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username" required />
+                </div>
+                <div class="input-group">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Kata Sandi" required />
+                </div>
+                
+                <a href="#" class="forgot-pass">Lupa Kata Sandi?</a>
+                <!-- Diubah menjadi type submit -->
+                <button type="submit" class="btn-gradient">Login</button>
+                
+                <p class="social-text">atau masuk menggunakan sosial media</p>
+                <div class="social-container">
+                    <a href="#" class="social"><i class='bx bxl-google'></i></a>
+                    <a href="#" class="social"><i class='bx bxl-facebook'></i></a>
+                    <a href="#" class="social"><i class='bx bxl-github'></i></a>
+                    <a href="#" class="social"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- 3. OVERLAY PANEL -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <!-- Teks di Kiri -->
+                <div class="overlay-panel overlay-left">
+                    <h2>Selamat Datang Kembali!</h2>
+                    <p>Sudah punya akun?</p>
+                    <button class="btn-outline" id="signIn">Login</button>
+                </div>
+                <!-- Teks di Kanan -->
+                <div class="overlay-panel overlay-right">
+                    <h2>Halo, Selamat Datang!</h2>
+                    <p>Belum punya akun?</p>
+                    <button class="btn-outline" id="signUp">Register</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Panggil JS -->
+    <script src="js/login.js"></script>
+</body>
+</html>

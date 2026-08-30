@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREENLOOP | Detail Produk</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='lib/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/detail-produk.css">
+</head>
+<body>
+
+   <!-- NAVBAR MELAYANG -->
+    <nav class="navbar-pill">
+        <div class="logo">
+            <i class='bx bx-recycle'></i> GREENLOOP
+        </div>
+        
+        <!-- Menu di Tengah -->
+        <ul class="nav-links">
+            <li><a href="index-login.html">Beranda</a></li>
+            
+            <!-- Dropdown Layanan -->
+            <li class="dropdown">
+                <a href="#" class="drop-btn">Layanan <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <i class='bx bx-scan'></i>
+                        <div class="dropdown-text">
+                            <span class="title">AI Scanner</span>
+                            <span class="desc">Kenali jenis sampah & estimasi poin secara instan</span>
+                        </div>
+                    </a>
+                    <a href="dropoff.html" class="dropdown-item">
+                        <i class='bx bx-map-pin'></i>
+                        <div class="dropdown-text">
+                            <span class="title">Drop-off Point</span>
+                            <span class="desc">Cari lokasi mitra penyetoran terdekat</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li><a href="marketplace.html" class="active">GreenMart</a></li>
+            <li><a href="komunitas.html">Komunitas</a></li>
+        </ul>
+
+        <!-- Bagian Kanan: Notifikasi & Profil -->
+        <div class="nav-actions">
+            <!-- Tombol & Kotak Notifikasi -->
+            <div class="notif-dropdown">
+                <div class="notif-btn">
+                    <i class='bx bx-bell' title="Notifikasi"></i>
+                    <span class="notif-badge"></span>
+                </div>
+                <div class="notif-menu">
+                    <div class="notif-header">
+                        <h4>Notifikasi</h4>
+                        <a href="#">Tandai semua dibaca</a>
+                    </div>
+                    <div class="notif-list">
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-green"><i class='bx bx-scan'></i></div>
+                            <div class="notif-content">
+                                <p>Analisis sampah harian Anda sudah siap!</p>
+                                <span>2 menit yang lalu</span>
+                            </div>
+                        </a>
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-orange"><i class='bx bx-trophy'></i></div>
+                            <div class="notif-content">
+                                <p>Selamat! Kamu menyelesaikan challenge 3 hari.</p>
+                                <span>1 jam yang lalu</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="notif-footer">
+                        <a href="#">Lihat semua notifikasi</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profil User dengan Dropdown -->
+            <div class="user-profile-dropdown">
+                <div class="user-profile-btn">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+                <div class="profile-menu">
+                    <div class="profile-user-info">
+                        <span class="profile-name">Tom Edy</span>
+                        <span class="profile-email">tomedyimut@email.com</span>
+                    </div>
+                    <div class="profile-divider"></div>
+                    <a href="profile.html"><i class='bx bx-user'></i> Profile</a>
+                    <a href="login.html" class="logout"><i class='bx bx-log-out'></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN KONTEN DETAIL PRODUK -->
+    <main class="detail-main-container animate-on-scroll">
+        
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="marketplace.html"><i class='bx bx-arrow-back'></i> Kembali ke GreenMart</a>
+            <span class="separator">/</span>
+            <span class="current-page">Tumbler Stainless Eco</span>
+        </div>
+
+        <!-- 1. WRAPPER PRODUK UTAMA -->
+        <div class="product-detail-wrapper">
+            
+            <!-- Kiri: Galeri Foto Produk -->
+            <div class="product-gallery-section">
+                <div class="main-image-box">
+                    <img id="mainProductImage" src="assets/tumbler.jpg" alt="Tumbler Stainless Eco" onerror="this.src='https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=600'">
+                </div>
+                <div class="thumbnail-row">
+                    <div class="thumb-box active" onclick="swapImage(this, 'assets/tumbler.jpg', 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=200')">
+                        <img src="assets/tumbler.jpg" onerror="this.src='https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=200'">
+                    </div>
+                    <div class="thumb-box" onclick="swapImage(this, 'assets/tumbler1.jpg','https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600', 'https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=200')">
+                        <img src="assets/tumbler1.jpg" onerror="this.src='https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=200'">
+                    </div>
+                    <div class="thumb-box" onclick="swapImage(this, 'assets/tumbler3.jpg','https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=600', 'https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=200')">
+                        <img src="assets/tumbler3.jpg" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=200'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kanan: Informasi Produk -->
+            <div class="product-info-section">
+                <div>
+                    <!-- Badge Bar -->
+                    <div class="badge-bar">
+                        <div class="badge-stock"><i class='bx bx-check-circle'></i> Tersedia 45 Stok</div>
+                    </div>
+                    
+                    <h1 class="product-title">Tumbler Stainless Eco</h1>
+                    <div class="product-meta">
+                        <span class="meta-item vendor"><i class='bx bx-store'></i> ZeroWaste ID</span>
+                        <span class="meta-item rating"><i class='bx bxs-star text-yellow'></i> 4.9 (120 Ulasan)</span>
+                    </div>
+
+                    <!-- Teks Deskripsi Sederhana -->
+                    <p class="product-description">
+                        Tumbler ramah lingkungan ini terbuat dari bahan 100% Stainless Steel SUS 304 food-grade berkualitas premium yang anti-karat. Didesain secara ergonomis dengan ukuran diameter 7 cm dan tinggi 22 cm, sangat praktis untuk dibawa bepergian.
+                    </p>
+
+                    <!-- Quick Features -->
+                    <div class="quick-features">
+                        <div class="feature-item">
+                            <div class="feat-icon"><i class='bx bx-time-five'></i></div>
+                            <div class="feat-text">Tahan Suhu 12 Jam</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feat-icon"><i class='bx bx-leaf'></i></div>
+                            <div class="feat-text">Bebas Plastik (Eco)</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feat-icon"><i class='bx bx-check-shield'></i></div>
+                            <div class="feat-text">Food Grade & BPA Free</div>
+                        </div>
+                    </div>
+
+                    <!-- Box Pilihan Pembayaran -->
+                    <h4 class="payment-title">Pilih Metode Pembayaran</h4>
+                    <div class="payment-selector">
+                        <label class="pay-card active">
+                            <input type="radio" name="payment_method" value="poin" checked onchange="changePaymentMethod()">
+                            <div class="pay-card-content">
+                                <div class="pay-type"><i class='bx bxs-star'></i> Tukar Poin</div>
+                                <div class="pay-amount text-green">750 Poin</div>
+                            </div>
+                        </label>
+                        <label class="pay-card">
+                            <input type="radio" name="payment_method" value="uang" onchange="changePaymentMethod()">
+                            <div class="pay-card-content">
+                                <div class="pay-type"><i class='bx bx-wallet'></i> Beli (Rp)</div>
+                                <div class="pay-amount">Rp 75.000</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bagian Bawah: Tombol Beli & Kontak CS Berjajar Samping-sampingan -->
+                <div class="action-bottom-row">
+                    <button class="btn-checkout-dynamic" id="btnCheckout">
+                        <i class='bx bxs-star'></i> Tukar Point
+                    </button>
+
+                    <div class="contact-cs-inline">
+                        <div class="contact-cs-icon">
+                            <i class='bx bx-phone'></i>
+                        </div>
+                        <div class="contact-cs-text">
+                            <span class="cs-title">Butuh Bantuan?</span>
+                            <a href="#" class="cs-link">Hubungi Admin ZeroWaste ID</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2. GOOGLE REVIEWS SECTION -->
+        <section class="google-reviews-section animate-on-scroll">
+            <div class="gr-header-container">
+                <div class="gr-header-title">
+                    <i class='bx bx-message-rounded-dots text-purple'></i> Apa Kata Pelanggan?
+                </div>
+                <div class="gr-slider-controls">
+                    <button class="slider-btn" id="btnPrevReview"><i class='bx bx-chevron-left'></i></button>
+                    <button class="slider-btn" id="btnNextReview"><i class='bx bx-chevron-right'></i></button>
+                </div>
+            </div>
+
+            <div class="gr-cards-wrapper" id="reviewWrapper">
+                <div class="gr-card">
+                    <img src="https://i.pravatar.cc/150?img=32" alt="User" class="gr-user-img">
+                    <div class="gr-card-content">
+                        <div class="gr-user-header">
+                            <strong>Sinta Bella</strong>
+                            <div class="gr-stars"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></div>
+                        </div>
+                        <p class="gr-review-text">"Sangat membantu! Sekarang saya tahu cara berhemat karena menukar poin dengan botol minum. Kualitasnya juga bagus."</p>
+                    </div>
+                </div>
+                <div class="gr-card">
+                    <img src="https://i.pravatar.cc/150?img=12" alt="User" class="gr-user-img">
+                    <div class="gr-card-content">
+                        <div class="gr-user-header">
+                            <strong>Budi Wibawa</strong>
+                            <div class="gr-stars"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></div>
+                        </div>
+                        <p class="gr-review-text">"Air dingin beneran awet dari pagi sampe sore. Sangat mendukung gaya hidup less plastic saya setiap pergi ke kampus."</p>
+                    </div>
+                </div>
+                <div class="gr-card">
+                    <img src="https://i.pravatar.cc/150?img=45" alt="User" class="gr-user-img">
+                    <div class="gr-card-content">
+                        <div class="gr-user-header">
+                            <strong>Anita Wijaya</strong>
+                            <div class="gr-stars"><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></div>
+                        </div>
+                        <p class="gr-review-text">"Desain elegan dan bahannya tebal. Penukaran poinnya juga sangat mudah tanpa proses yang bertele-tele."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. REKOMENDASI PRODUK SERUPA -->
+        <section class="related-products-section animate-on-scroll">
+            <h3 class="related-title">Mungkin Anda Juga Suka</h3>
+            
+            <div class="modern-product-grid">
+                <div class="mod-card">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 300 Poin</div>
+                        <img src="assets/referensi1.jpg" alt="Totebag" onerror="this.src='https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Botol Minum</h4>
+                    <span class="mod-vendor">Sampahkita</span>
+                    <div class="mod-price"><strong>Rp 30.000</strong></div>
+                    <a href="#" class="btn-detail">Lihat Produk</a>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 100 Poin</div>
+                        <img src="assets/reverensi2.jpg" alt="Cup" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Cup Coffee</h4>
+                    <span class="mod-vendor">ZeroWaste ID</span>
+                    <div class="mod-price"><strong>Rp 10.000</strong></div>
+                    <a href="#" class="btn-detail">Lihat Produk</a>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 200 Poin</div>
+                        <img src="assets/reverensi3.jpg" alt="Toples" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Toples Mini</h4>
+                    <span class="mod-vendor">Eco Bali</span>
+                    <div class="mod-price"><strong>Rp 20.000</strong></div>
+                    <a href="#" class="btn-detail">Lihat Produk</a>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 80 Poin</div>
+                        <img src="assets/reverensi4.jpg" alt="cup" onerror="this.src='https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Cup Minuman</h4>
+                    <span class="mod-vendor">ZeroWaste</span>
+                    <div class="mod-price"><strong>Rp 8.000</strong></div>
+                    <a href="#" class="btn-detail">Lihat Produk</a>
+                </div>
+                <div class="mod-card">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 30.000 Poin</div>
+                        <img src="assets/bambu.jpg" alt="cup" onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Botol Bambu</h4>
+                    <span class="mod-vendor">ZeroWaste</span>
+                    <div class="mod-price"><strong>Rp 30.000</strong></div>
+                    <a href="#" class="btn-detail">Lihat Produk</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer animate-on-scroll">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col-main">
+                    <div class="footer-brand-stack">
+                        <div class="footer-logo-large">
+                            <i class='bx bx-recycle'></i>
+                        </div>
+                        <div class="footer-brand-text-group">
+                            <p class="footer-desc">
+                                Solusi pengelolaan sampah cerdas Indonesia yang menggabungkan kecanggihan AI dengan ekosistem sirkular untuk generasi yang lebih bersih dan sehat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-tiktok'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <a href="#">AI Scanner Sampah</a>
+                    <a href="#">Peta Drop-off Point</a>
+                    <a href="#">Point</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <a href="#">Pusat Bantuan</a>
+                    <a href="#">Komunitas</a>
+                    <a href="#">Ketentuan Layanan</a>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4>Hubungi Kami</h4>
+                    <a href="mailto:halo@greenloop.id"><i class='bx bx-envelope'></i> halo@greenloop.id</a>
+                    <a href="tel:+622150012345"><i class='bx bx-phone'></i> +62 21 500-123-45</a>
+                    <div class="location-text"><i class='bx bx-map'></i> Denpasar, Bali - Indonesia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-giant-text-container">
+            <h1 class="giant-brand-text">
+                <span style="--i:1;">G</span><span style="--i:2;">R</span><span style="--i:3;">E</span><span style="--i:4;">E</span><span style="--i:5;">N</span><span style="--i:6;">L</span><span style="--i:7;">O</span><span style="--i:8;">O</span><span style="--i:9;">P</span>
+            </h1>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 GREENLOOP. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="js/detail-produk.js"></script>
+</body>
+</html>
+
+

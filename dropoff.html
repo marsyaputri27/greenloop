@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREENLOOP | Cari Mitra & Drop-off Point Terdekat</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='lib/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <!-- AOS Animation CSS -->
+    <link href="lib/aos/aos.css" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dropoff.css">
+</head>
+<body>
+    <!-- OVERLAY UNTUK MOBILE DRAWER -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- MOBILE DRAWER (MENU SAMPING) -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <!-- Header Drawer -->
+        <div class="drawer-header">
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+            <button class="close-drawer-btn" id="closeDrawerBtn">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+
+        <!-- Profil User di Drawer -->
+        <div class="drawer-user-info">
+            <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+            <div class="info-text">
+                <span class="d-name">Tom Edy</span>
+                <span class="d-email">tomedyimut@email.com</span>
+            </div>
+        </div>
+
+        <!-- Bagian Navigasi Utama -->
+        <div class="drawer-section-title">NAVIGASI</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="index-login.html" class="drawer-item">
+                    <i class='bx bx-home-alt'></i> Beranda
+                </a>
+            </li>
+            <li class="drawer-dropdown">
+                <a href="#" class="drawer-item drawer-drop-btn" id="drawerLayananBtn">
+                    <span style="display: flex; align-items: center; gap: 14px;">
+                        <i class='bx bx-grid-alt'></i> Layanan
+                    </span>
+                    <i class='bx bx-chevron-down drop-icon'></i>
+                </a>
+                <div class="drawer-submenu" id="drawerSubmenu">
+                    <a href="dashboard.html">AI Scanner</a>
+                    <a href="dropoff.html" class="active">Drop-off Point</a>
+                </div>
+            </li>
+            <li>
+                <a href="marketplace.html" class="drawer-item">
+                    <i class='bx bx-store'></i> GreenMart
+                </a>
+            </li>
+            <li>
+                <a href="komunitas.html" class="drawer-item">
+                    <i class='bx bx-group'></i> Komunitas
+                </a>
+            </li>
+        </ul>
+
+        <!-- Bagian Akun -->
+        <div class="drawer-section-title">AKUN</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="profile.html" class="drawer-item">
+                    <i class='bx bx-user'></i> Profile Saya
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="drawer-item logout-btn">
+                    <i class='bx bx-log-out'></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- NAVBAR MELAYANG DENGAN EFEK BLUR -->
+    <nav class="navbar-pill">
+        <!-- Wrapper Kiri (Hamburger & Logo) -->
+        <div class="nav-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class='bx bx-menu'></i>
+            </button>
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+        </div>
+        
+        <!-- Menu di Tengah (Desktop Saja) -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index-login.html">Beranda</a></li>
+            
+            <!-- Dropdown Layanan -->
+            <li class="dropdown">
+                <a href="#" class="drop-btn active">Layanan <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <i class='bx bx-scan'></i>
+                        <div class="dropdown-text">
+                            <span class="title">AI Scanner</span>
+                            <span class="desc">Kenali jenis sampah & estimasi poin secara instan</span>
+                        </div>
+                    </a>
+                    <a href="dropoff.html" class="dropdown-item">
+                        <i class='bx bx-map-pin'></i>
+                        <div class="dropdown-text">
+                            <span class="title">Drop-off Point</span>
+                            <span class="desc">Cari lokasi mitra penyetoran terdekat</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li><a href="marketplace.html">GreenMart</a></li>
+            <li><a href="komunitas.html">Komunitas</a></li>
+        </ul>
+
+        <!-- Bagian Kanan: Notifikasi & Profil -->
+        <div class="nav-actions">
+            <!-- Tombol & Kotak Notifikasi -->
+            <div class="notif-dropdown">
+                <div class="notif-btn">
+                    <i class='bx bx-bell' title="Notifikasi"></i>
+                    <span class="notif-badge"></span>
+                </div>
+                <div class="notif-menu">
+                    <div class="notif-header">
+                        <h4>Notifikasi</h4>
+                        <a href="#">Tandai semua dibaca</a>
+                    </div>
+                    <div class="notif-list">
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-green"><i class='bx bx-scan'></i></div>
+                            <div class="notif-content">
+                                <p>Analisis sampah harian Anda sudah siap!</p>
+                                <span>2 menit yang lalu</span>
+                            </div>
+                        </a>
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-orange"><i class='bx bx-trophy'></i></div>
+                            <div class="notif-content">
+                                <p>Selamat! Kamu menyelesaikan challenge 3 hari.</p>
+                                <span>1 jam yang lalu</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="notif-footer">
+                        <a href="#">Lihat semua notifikasi</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profil User dengan Dropdown -->
+            <div class="user-profile-dropdown">
+                <div class="user-profile-btn">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+                <div class="profile-menu">
+                    <div class="profile-user-info">
+                        <span class="profile-name">Tom Edy</span>
+                        <span class="profile-email">tomedyimut@email.com</span>
+                    </div>
+                    <div class="profile-divider"></div>
+                    <a href="profile.html"><i class='bx bx-user'></i> Profile</a>
+                    <a href="login.html" class="logout"><i class='bx bx-log-out'></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- WRAPPER UTAMA -->
+    <main class="dropoff-page-wrapper">
+        
+        <!-- 1. HERO BANNER -->
+        <header class="hero-box animate-on-scroll">
+            <div class="hero-content">
+                <span class="hero-badge"><i class='bx bx-buildings'></i> MITRA & FASILITAS</span>
+                <h1>Jaringan Daur Ulang Indonesia</h1>
+                <p>Temukan fasilitas pengelolaan sampah terdekat, baik swasta maupun pemerintah untuk mulai menyetorkan sampah Anda.</p>
+            </div>
+        </header>
+
+        <!-- 2. FILTER & PENCARIAN -->
+        <div class="filter-row-container animate-on-scroll">
+            <div class="search-box-left">
+                <i class='bx bx-search'></i>
+                <input type="text" id="searchInput" placeholder="Cari nama fasilitas atau wilayah...">
+            </div>
+
+            <div class="category-pills-right">
+                <button class="pill active" data-region="all">Semua Wilayah</button>
+                <button class="pill" data-region="yogyakarta">Yogyakarta</button>
+                <button class="pill" data-region="jakarta">Jakarta</button>
+                <button class="pill" data-region="kalimantan">Kalimantan</button>
+                <button class="pill" data-region="sumatera">Sumatera</button>
+                <button class="pill" data-region="bali">Bali</button>
+                <button class="pill" data-region="papua">Papua</button>
+            </div>
+        </div>
+
+        <!-- 3. GRID KARTU LOKASI -->
+        <div class="locations-grid-container animate-on-scroll" id="locationsList">
+            
+            <!-- Card 1 -->
+            <div class="location-card" data-region="yogyakarta" data-address="Jl. Tambak, Ngestiharjo, Kec. Kasihan, Kabupaten Bantul, DIY">
+                <div class="card-header-img">
+                    <img src="assets/perusahaan.jpg" alt="Fasilitas">
+                    <span class="card-tag tag-purple">Pemerintah</span>
+                </div>
+                <div class="card-content">
+                    <h4>Bank Sampah Kasihan Bantul</h4>
+                    <p class="address"><i class='bx bx-map'></i> Jl. Tambak, Ngestiharjo, Kec. Kasihan, Kabupaten Bantul, DIY</p>
+                    <div class="card-btn-group">
+                        <button class="btn-action-route"> Rute</button>
+                        <button class="btn-action-contact"> Kontak</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="location-card" data-region="jakarta" data-address="Jl. Curug Raya, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur">
+                <div class="card-header-img">
+                    <img src="assets/perusahaan2.jpg" alt="Fasilitas">
+                    <span class="card-tag tag-orange">Swasta</span>
+                </div>
+                <div class="card-content">
+                    <h4>Eco Station Duren Sawit</h4>
+                    <p class="address"><i class='bx bx-map'></i> Jl. Curug Raya, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur</p>
+                    <div class="card-btn-group">
+                        <button class="btn-action-route"> Rute</button>
+                        <button class="btn-action-contact"> Kontak</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="location-card" data-region="kalimantan" data-address="Pemaluan, Kec. Sepaku, Kabupaten Penajam Paser Utara, Kalimantan Timur">
+                <div class="card-header-img">
+                    <img src="assets/perusahaan3.jpg" alt="Fasilitas">
+                    <span class="card-tag tag-purple">Pemerintah</span>
+                </div>
+                <div class="card-content">
+                    <h4>Depo Lingkungan IKN Sepaku</h4>
+                    <p class="address"><i class='bx bx-map'></i> Pemaluan, Kec. Sepaku, Kabupaten Penajam Paser Utara, Kaltim</p>
+                    <div class="card-btn-group">
+                        <button class="btn-action-route"> Rute</button>
+                        <button class="btn-action-contact"> Kontak</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="location-card" data-region="sumatera" data-address="Belawan Pulau Sicanang, Medan Belawan, Kota Medan, Sumatera Utara">
+                <div class="card-header-img">
+                    <img src="assets/perusahaan4.jpg" alt="Fasilitas">
+                    <span class="card-tag tag-purple">Pemerintah</span>
+                </div>
+                <div class="card-content">
+                    <h4>Bank Sampah Belawan</h4>
+                    <p class="address"><i class='bx bx-map'></i> Belawan Pulau Sicanang, Medan Belawan, Kota Medan, Sumatera Utara</p>
+                    <div class="card-btn-group">
+                        <button class="btn-action-route"> Rute</button>
+                        <button class="btn-action-contact"> Kontak</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="location-card" data-region="bali" data-address="Jl. Mahendradatta No.A3, Padangsambian, Kec. Denpasar Bar., Kota Denpasar, Bali">
+                <div class="card-header-img">
+                    <img src="assets/plastik.jpg" alt="Fasilitas">
+                    <span class="card-tag tag-orange">Swasta</span>
+                </div>
+                <div class="card-content">
+                    <h4>Mahendradatta Daur Ulang Bali</h4>
+                    <p class="address"><i class='bx bx-map'></i> Jl. Mahendradatta No.A3, Padangsambian, Kec. Denpasar Bar., Bali</p>
+                    <div class="card-btn-group">
+                        <button class="btn-action-route"> Rute</button>
+                        <button class="btn-action-contact"> Kontak</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="location-card" data-region="papua" data-address="Jl. Pemuda No.50, Gurabesi, Kec. Jayapura Utara, Kota Jayapura, Papua">
+                <div class="card-header-img">
+                    <img src="assets/hero3.jpg" alt="Fasilitas">
+                    <span class="card-tag tag-purple">Pemerintah</span>
+                </div>
+                <div class="card-content">
+                    <h4>Depo Kloofkamp Jayapura</h4>
+                    <p class="address"><i class='bx bx-map'></i> Jl. Pemuda No.50, Gurabesi, Kec. Jayapura Utara, Kota Jayapura, Papua</p>
+                    <div class="card-btn-group">
+                        <button class="btn-action-route"> Rute</button>
+                        <button class="btn-action-contact"> Kontak</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 4. GALERI PENYELAMAT BUMI -->
+        <section class="gallery-section animate-on-scroll">
+            <div class="gallery-title-wrapper">
+                <div class="line"></div>
+                <h2>Galeri Penyelamat Bumi</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="custom-gallery-grid">
+                <div class="gallery-img-tall">
+                    <img src="assets/galeri1.jpg" alt="Aksi 1">
+                </div>
+                
+                <div class="gallery-img-small item-1">
+                    <img src="assets/galeri.jpg" alt="Aksi 2">
+                </div>
+                <div class="gallery-img-small item-2">
+                    <img src="assets/cashback.jpg" alt="Aksi 3">
+                </div>
+                <div class="gallery-img-small item-3">
+                    <img src="assets/geleri3.jpg" alt="Aksi 4">
+                </div>
+                <div class="gallery-img-small item-4">
+                    <img src="assets/setor.jpg" alt="Aksi 5">
+                </div>
+
+                <div class="gallery-img-tall">
+                    <img src="assets/galeri2.jpg" alt="Aksi 6">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer animate-on-scroll">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col-main">
+                    <div class="footer-brand-stack">
+                        <div class="footer-logo-large">
+                            <i class='bx bx-recycle'></i>
+                        </div>
+                        <div class="footer-brand-text-group">
+                            <p class="footer-desc">
+                                Solusi pengelolaan sampah cerdas Indonesia yang menggabungkan kecanggihan AI dengan ekosistem sirkular untuk generasi yang lebih bersih dan sehat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-tiktok'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <a href="#">AI Scanner Sampah</a>
+                    <a href="#">Peta Drop-off Point</a>
+                    <a href="#">Point</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <a href="#">Pusat Bantuan</a>
+                    <a href="#">Komunitas</a>
+                    <a href="#">Ketentuan Layanan</a>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4>Hubungi Kami</h4>
+                    <a href="mailto:halo@greenloop.id"><i class='bx bx-envelope'></i> halo@greenloop.id</a>
+                    <a href="tel:+622150012345"><i class='bx bx-phone'></i> +62 21 500-123-45</a>
+                    <div class="location-text"><i class='bx bx-map'></i> Denpasar, Bali - Indonesia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-giant-text-container">
+            <h1 class="giant-brand-text">
+                <span style="--i:1;">G</span><span style="--i:2;">R</span><span style="--i:3;">E</span><span style="--i:4;">E</span><span style="--i:5;">N</span><span style="--i:6;">L</span><span style="--i:7;">O</span><span style="--i:8;">O</span><span style="--i:9;">P</span>
+            </h1>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 GREENLOOP. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/gsap/gsap.min.js"></script>
+    <script src="lib/aos/aos.js"></script>
+    <script src="js/dropoff.js"></script>
+</body>
+</html>
+
+

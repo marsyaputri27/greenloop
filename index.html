@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREENLOOP | Ekosistem Ekonomi Sirkular</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='lib/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Panggil CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <!-- OVERLAY UNTUK MOBILE DRAWER -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- MOBILE DRAWER (MENU SAMPING) -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <!-- Header Drawer -->
+        <div class="drawer-header">
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+            <button class="close-drawer-btn" id="closeDrawerBtn">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+
+        <!-- Bagian Navigasi Utama -->
+        <div class="drawer-section-title">NAVIGASI</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="index.html" class="drawer-item active">
+                    <i class='bx bx-home-alt'></i> Beranda
+                </a>
+            </li>
+            <li class="drawer-dropdown">
+                <a href="#" class="drawer-item drawer-drop-btn" id="drawerLayananBtn">
+                    <span style="display: flex; align-items: center; gap: 14px;">
+                        <i class='bx bx-grid-alt'></i> Layanan
+                    </span>
+                    <i class='bx bx-chevron-down drop-icon'></i>
+                </a>
+                <div class="drawer-submenu" id="drawerSubmenu">
+                    <a href="#">AI Scanner</a>
+                    <a href="#">Drop-off Point</a>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="drawer-item">
+                    <i class='bx bx-store'></i> GreenMart
+                </a>
+            </li>
+            <li>
+                <a href="#" class="drawer-item">
+                    <i class='bx bx-group'></i> Komunitas
+                </a>
+            </li>
+        </ul>
+
+        <!-- Bagian Akun -->
+        <div class="drawer-section-title">AKUN</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="login.html" class="drawer-item logout-btn">
+                    <i class='bx bx-log-in'></i> Login
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- NAVBAR MELAYANG DENGAN EFEK BLUR -->
+    <nav class="navbar-pill">
+        <!-- Wrapper Kiri (Hamburger & Logo) -->
+        <div class="nav-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class='bx bx-menu'></i>
+            </button>
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+        </div>
+        
+        <!-- Menu di Tengah (Desktop Saja) -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Beranda</a></li>
+            
+            <!-- Dropdown Layanan -->
+            <li class="dropdown">
+                <a href="#" class="drop-btn">Layanan <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                        <i class='bx bx-scan'></i>
+                        <div class="dropdown-text">
+                            <span class="title">AI Scanner</span>
+                            <span class="desc">Kenali jenis sampah & estimasi poin secara instan</span>
+                        </div>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class='bx bx-map-pin'></i>
+                        <div class="dropdown-text">
+                            <span class="title">Drop-off Point</span>
+                            <span class="desc">Cari lokasi mitra penyetoran terdekat</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li><a href="#">GreenMart</a></li>
+            <li><a href="#">Komunitas</a></li>
+        </ul>
+
+        <!-- Bagian Kanan: Notifikasi & Tombol Login -->
+        <div class="nav-actions">
+            
+            <!-- Tombol & Kotak Notifikasi -->
+            <div class="notif-dropdown">
+                <div class="notif-btn">
+                    <i class='bx bx-bell' title="Notifikasi"></i>
+                    <span class="notif-badge"></span>
+                </div>
+                <!-- <div class="notif-menu">
+                    <div class="notif-header">
+                        <h4>Notifikasi</h4>
+                        <a href="#">Tandai semua dibaca</a>
+                    </div>
+                    <div class="notif-list">
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-green"><i class='bx bx-scan'></i></div>
+                            <div class="notif-content">
+                                <p>Analisis sampah harian Anda sudah siap!</p>
+                                <span>2 menit yang lalu</span>
+                            </div>
+                        </a>
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-orange"><i class='bx bx-trophy'></i></div>
+                            <div class="notif-content">
+                                <p>Selamat! Kamu menyelesaikan challenge 3 hari.</p>
+                                <span>1 jam yang lalu</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="notif-footer">
+                        <a href="#">Lihat semua notifikasi</a>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- Tombol Login (Menggantikan Profil User) -->
+            <div class="nav-login-wrapper">
+                <a href="login.html" class="btn-nav-login">
+                    <i class='bx bx-log-in'></i> Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION UTAMA -->
+    <section class="hero-container">
+        <div class="hero-content animate-on-scroll">
+            <div class="badge tag-anim">
+                <span class="dot animate-on-scroll"></span> #1 Platform Pahlawan
+            </div>
+            <h1 class="text-anim animate-on-scroll">
+                Sampah Bukan Akhir, Jadikan Awal yang 
+                <span class="highlight animate-on-scroll">Baru <i class='bx bxs-leaf'></i></span>
+            </h1>
+            <p class="text-anim animate-on-scroll">
+                Bantu kurangi krisis sampah di Indonesia. Foto sampahmu dengan AI, setor ke mitra terdekat, dan dapatkan poin untuk belanja produk ramah lingkungan.
+            </p>
+            <div class="cta-group text-anim animate-on-scroll">
+                <a href="#" class="btn-large">
+                    Mulai Siklusmu! <i class='bx bx-rocket'></i>
+                </a>
+                <div class="social-proof animate-on-scroll">
+                    <div class="avatars">
+                        <img src="https://i.pravatar.cc/100?img=1" alt="User">
+                        <img src="https://i.pravatar.cc/100?img=2" alt="User">
+                        <img src="https://i.pravatar.cc/100?img=3" alt="User">
+                    </div>
+                    <span><strong>+15K</strong> Pengguna</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-showcase animate-on-scroll">
+            <div class="hero-collage-wrapper">
+                <div class="collage-bg-dots"></div>
+                <div class="collage-modern-glow"></div>
+                
+                <div class="collage-main-img">
+                    <img src="assets/perusahaan4.jpg" alt="Kegiatan Utama">
+                </div>
+
+                <div class="collage-float-img-1">
+                    <img src="assets/geleri3.jpg" alt="Detail 1">
+                </div>
+
+                <div class="collage-float-img-2">
+                    <img src="assets/hero2.jpg" alt="Detail 2">
+                </div>
+
+                <div class="collage-floating-badge float-badge-anim">
+                    <div class="badge-icon-box"><i class='bx bxs-star'></i></div>
+                    <div class="badge-text-box">
+                        <span class="b-title">100% Terverifikasi</span>
+                        <span class="b-desc">Aman & Terpercaya</span>
+                    </div>
+                </div>
+
+                <div class="collage-floating-icon float-icon-anim">
+                    <i class='bx bx-recycle'></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TENTANG KAMI -->
+    <section class="about-us-section animate-on-scroll">
+        <div class="about-container">
+            <div class="about-image-single">
+                <div class="img-main">
+                    <div class="rating-badge">
+                        <div class="badge-icon"><i class='bx bxs-star'></i></div>
+                        <div class="badge-text">
+                            <strong>4.9</strong>
+                            <span>Rating Pengguna</span>
+                        </div>
+                    </div>
+                    <img src="assets/pengelolaan.png" alt="Tangan Memegang Tanaman">
+                </div>
+            </div>
+
+            <div class="about-text-side">
+                <span class="section-tag"><i class='bx bxs-spa'></i> TENTANG KAMI</span>
+                <h2>Mewujudkan Indonesia yang Lebih Bersih & Berkelanjutan</h2>
+                <p class="about-desc">
+                    GREENLOOP adalah platform ekosistem ekonomi sirkular berbasis kecerdasan buatan (AI) yang dirancang khusus untuk membantu masyarakat mengelola sampah mandiri melalui teknologi pemindaian instan.
+                </p>
+
+                <ul class="about-checkpoints">
+                    <li><div class="check-icon"><i class='bx bx-check bx-md'></i></div><span>Identifikasi jenis sampah & estimasi poin secara instan dengan teknologi cerdas.</span></li>
+                    <li><div class="check-icon"><i class='bx bx-check bx-md'></i></div><span>Temukan lokasi mitra penyetoran sampah terdekat melalui peta interaktif.</span></li>
+                    <li><div class="check-icon"><i class='bx bx-check bx-md'></i></div><span>Pantau transparansi proses pengolahan limbah menjadi produk bernilai tinggi.</span></li>
+                    <li><div class="check-icon"><i class='bx bx-check bx-md'></i></div><span>Temukan komunitas yang bisa anda ajak untuk berdiskusi dan berkolaborasi.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about-stats-row animate-on-scroll">
+            <div class="stat-item"><h3><span class="counter" data-target="3">0</span>+</h3><p>tahun pengalaman</p></div>
+            <div class="stat-item"><h3><span class="counter" data-target="15">0</span>K+</h3><p>pengguna aktif</p></div>
+            <div class="stat-item"><h3><span class="counter" data-target="500">0</span>+</h3><p>mitra daur ulang</p></div>
+            <div class="stat-item"><h3><span class="counter" data-target="4.9" data-decimal="1">0</span></h3><p>rating rata-rata</p></div>
+        </div>
+    </section>
+
+    <!-- SECTION MASALAH & SOLUSI -->
+    <section class="solution-section animate-on-scroll">
+        <div class="solution-header">
+            <span class="section-tag"><i class='bx bx-error-circle'></i> MASALAH & SOLUSI KAMI</span>
+            <h2>Ubah Tantangan Sampah Menjadi Solusi Nyata</h2>
+        </div>
+        <div class="solution-container">
+            <div class="solution-image-wrapper">
+                <img src="assets/setor-sampah.jpg" alt="Suasana Antrean Setor Sampah" class="solution-static-img">
+            </div>
+
+            <div class="solution-accordion animate-on-scroll">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <div class="accordion-title-wrap"><span class="acc-number">01</span><h3>Bingung Cara Memilah Sampah?</h3></div>
+                        <div class="acc-icon"><i class='bx bx-plus'></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Masalah:</strong> Seringkali masyarakat kesulitan mengenali jenis sampah plastik, organik, atau B3 sehingga tercampur di tempat sampah rumah.</p>
+                        <p class="solution-text"><strong>Solusi AI Scanner:</strong> Kamera AI kami memindai, mengklasifikasi jenis sampah, dan menghitung poin secara instan.</p>
+                        <a href="#" class="acc-link">Coba Sekarang <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+
+                <div class="accordion-item animate-on-scroll">
+                    <div class="accordion-header">
+                        <div class="accordion-title-wrap"><span class="acc-number">02</span><h3>Tidak Tahu Tempat Penyetoran?</h3></div>
+                        <div class="acc-icon"><i class='bx bx-plus'></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Masalah:</strong> Sampah sudah terkumpul rapi, tetapi sulit menemukan bank sampah atau titik drop-off terdekat yang aman dan terpercaya.</p>
+                        <p class="solution-text"><strong>Solusi Drop-off:</strong> Peta interaktif melacak mitra penyetoran terdekat dari lokasi Anda saat ini.</p>
+                        <a href="#" class="acc-link">Cari Lokasi <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+
+                <div class="accordion-item animate-on-scroll">
+                    <div class="accordion-header">
+                        <div class="accordion-title-wrap"><span class="acc-number">03</span><h3>Kurangnya Insentif Daur Ulang?</h3></div>
+                        <div class="acc-icon"><i class='bx bx-plus'></i></div>
+                    </div>
+                    <div class="accordion-body">
+                        <p><strong>Masalah:</strong> Aktivitas memilah sampah sering dianggap melelahkan dan tidak memberikan keuntungan langsung bagi masyarakat.</p>
+                        <p class="solution-text"><strong>Solusi Reward Sirkular:</strong> Setiap kilogram sampah yang disetor mendatangkan poin untuk ditukar produk ramah lingkungan.</p>
+                        <a href="#" class="acc-link">Lihat Katalog Reward <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION KOLABORASI -->
+    <section class="collaboration-section animate-on-scroll">
+        <div class="collab-container">
+            <div class="collab-top">
+                <div class="collab-left">
+                    <h2>50+ Mitra<br>Berkolaborasi<br>Bersama Kami.</h2>
+                    <div class="collab-social-proof">
+                        <div class="collab-avatars">
+                            <img src="https://i.pravatar.cc/100?img=4" alt="User">
+                            <img src="https://i.pravatar.cc/100?img=5" alt="User">
+                            <img src="https://i.pravatar.cc/100?img=6" alt="User">
+                            <div class="avatar-plus">+</div>
+                        </div>
+                        <div class="collab-rating">
+                            <strong>15k rating</strong>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="collab-center">
+                    <div class="center-logo-spin">
+                        <i class='bx bx-recycle'></i>
+                    </div>
+                </div>
+
+                <div class="collab-right">
+                    <p>GREENLOOP adalah partner kebersihan terpercaya bagi Dinas Lingkungan Hidup Kota Denpasar, Kabupaten Badung, ecoBali, Pandawara Group, dan berbagai komunitas pelestari alam di seluruh Indonesia.</p>
+                    <a href="#" class="btn-dark">Gabung Kolaborasi <i class='bx bx-right-arrow-alt'></i></a>
+                </div>
+            </div>
+
+            <div class="collab-bottom">
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        <div class="partner-item"><img src="assets/badung.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/bandung.webp" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/bekasi.webp" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/dps.png" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta5.png" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta6.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta7.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/pandawara.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta1.png" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta2.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta3.png" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta4.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta8.jpg" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta10.png" alt="Partner"></div>
+                        <div class="partner-item"><img src="assets/swasta9.jpg" alt="Partner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer animate-on-scroll">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col-main">
+                    <div class="footer-brand-stack">
+                        <div class="footer-logo-large">
+                            <i class='bx bx-recycle'></i>
+                        </div>
+                        <div class="footer-brand-text-group">
+                            <p class="footer-desc">
+                                Solusi pengelolaan sampah cerdas Indonesia yang menggabungkan kecanggihan AI dengan ekosistem sirkular untuk generasi yang lebih bersih dan sehat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-tiktok'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <a href="#">AI Scanner Sampah</a>
+                    <a href="#">Peta Drop-off Point</a>
+                    <a href="#">Point</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <a href="#">Pusat Bantuan</a>
+                    <a href="#">Komunitas</a>
+                    <a href="#">Ketentuan Layanan</a>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4>Hubungi Kami</h4>
+                    <a href="mailto:halo@greenloop.id"><i class='bx bx-envelope'></i> halo@greenloop.id</a>
+                    <a href="tel:+622150012345"><i class='bx bx-phone'></i> +62 21 500-123-45</a>
+                    <div class="location-text"><i class='bx bx-map'></i> Denpasar, Bali - Indonesia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-giant-text-container">
+            <h1 class="giant-brand-text">
+                <span style="--i:1;">G</span><span style="--i:2;">R</span><span style="--i:3;">E</span><span style="--i:4;">E</span><span style="--i:5;">N</span><span style="--i:6;">L</span><span style="--i:7;">O</span><span style="--i:8;">O</span><span style="--i:9;">P</span>
+            </h1>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 GREENLOOP. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Core & Plugins -->
+    <script src="lib/gsap/gsap.min.js"></script>
+    <script src="lib/gsap/ScrollTrigger.min.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREENLOOP | EcoMart & Tukar Poin</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='lib/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/marketplace.css">
+</head>
+<body>
+    <!-- OVERLAY UNTUK MOBILE DRAWER -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- MOBILE DRAWER (MENU SAMPING) -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <!-- Header Drawer -->
+        <div class="drawer-header">
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+            <button class="close-drawer-btn" id="closeDrawerBtn">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+
+        <!-- Profil User di Drawer -->
+        <div class="drawer-user-info">
+            <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+            <div class="info-text">
+                <span class="d-name">Tom Edy</span>
+                <span class="d-email">tomedyimut@email.com</span>
+            </div>
+        </div>
+
+        <!-- Bagian Navigasi Utama -->
+        <div class="drawer-section-title">NAVIGASI</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="index-login.html" class="drawer-item">
+                    <i class='bx bx-home-alt'></i> Beranda
+                </a>
+            </li>
+            <li class="drawer-dropdown">
+                <a href="#" class="drawer-item drawer-drop-btn" id="drawerLayananBtn">
+                    <span style="display: flex; align-items: center; gap: 14px;">
+                        <i class='bx bx-grid-alt'></i> Layanan
+                    </span>
+                    <i class='bx bx-chevron-down drop-icon'></i>
+                </a>
+                <div class="drawer-submenu" id="drawerSubmenu">
+                    <a href="dashboard.html">AI Scanner</a>
+                    <a href="dropoff.html">Drop-off Point</a>
+                </div>
+            </li>
+            <li>
+                <a href="marketplace.html" class="drawer-item active">
+                    <i class='bx bx-store'></i> GreenMart
+                </a>
+            </li>
+            <li>
+                <a href="komunitas.html" class="drawer-item">
+                    <i class='bx bx-group'></i> Komunitas
+                </a>
+            </li>
+        </ul>
+
+        <!-- Bagian Akun -->
+        <div class="drawer-section-title">AKUN</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="profile.html" class="drawer-item">
+                    <i class='bx bx-user'></i> Profile Saya
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="drawer-item logout-btn">
+                    <i class='bx bx-log-out'></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- NAVBAR MELAYANG DENGAN EFEK BLUR -->
+    <nav class="navbar-pill">
+        <!-- Wrapper Kiri (Hamburger & Logo) -->
+        <div class="nav-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class='bx bx-menu'></i>
+            </button>
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+        </div>
+        
+        <!-- Menu di Tengah (Desktop Saja) -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index-login.html">Beranda</a></li>
+            
+            <!-- Dropdown Layanan -->
+            <li class="dropdown">
+                <a href="#" class="drop-btn">Layanan <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <i class='bx bx-scan'></i>
+                        <div class="dropdown-text">
+                            <span class="title">AI Scanner</span>
+                            <span class="desc">Kenali jenis sampah & estimasi poin secara instan</span>
+                        </div>
+                    </a>
+                    <a href="dropoff.html" class="dropdown-item">
+                        <i class='bx bx-map-pin'></i>
+                        <div class="dropdown-text">
+                            <span class="title">Drop-off Point</span>
+                            <span class="desc">Cari lokasi mitra penyetoran terdekat</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li><a href="marketplace.html" class="active">GreenMart</a></li>
+            <li><a href="komunitas.html">Komunitas</a></li>
+        </ul>
+
+        <!-- Bagian Kanan: Notifikasi & Profil -->
+        <div class="nav-actions">
+            <!-- Kotak Notifikasi -->
+            <div class="notif-dropdown">
+                <div class="notif-btn">
+                    <i class='bx bx-bell' title="Notifikasi"></i>
+                    <span class="notif-badge"></span>
+                </div>
+                <div class="notif-menu">
+                    <div class="notif-header">
+                        <h4>Notifikasi</h4>
+                        <a href="#">Tandai semua dibaca</a>
+                    </div>
+<div class="notif-list">
+    <a href="#" class="notif-item unread">
+        <div class="notif-icon bg-green"><i class='bx bx-scan'></i></div>
+        <div class="notif-content">
+            <p>Analisis sampah harian Anda sudah siap!</p>
+            <span>2 menit yang lalu</span>
+        </div>
+    </a>
+    <a href="#" class="notif-item unread">
+        <div class="notif-icon bg-orange"><i class='bx bx-trophy'></i></div>
+        <div class="notif-content">
+            <p>Selamat! Kamu menyelesaikan challenge 3 hari.</p>
+            <span>1 jam yang lalu</span>
+        </div>
+    </a>
+</div>
+                    <div class="notif-footer">
+                        <a href="#">Lihat semua notifikasi</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Profile Dropdown -->
+            <div class="user-profile-dropdown">
+                <div class="user-profile-btn">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+                <div class="profile-menu">
+                    <div class="profile-user-info">
+                        <span class="profile-name">Tom Edy</span>
+                        <span class="profile-email">tomedyimut@email.com</span>
+                    </div>
+                    <div class="profile-divider"></div>
+                    <a href="profile.html"><i class='bx bx-user'></i> Profile</a>
+                    <a href="login.html" class="logout"><i class='bx bx-log-out'></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA MARKETPLACE -->
+    <main class="market-main-container">
+        
+        <!-- 1. HERO SECTION ECOMART -->
+        <section class="eco-hero animate-on-scroll">
+            <div class="eco-hero-bg">
+                
+                <!-- Sisi Kiri (Teks & Tombol) -->
+                <div class="hero-left">
+                    <span class="badge-unggulan">GREEN REWARD</span>
+                    <h1 class="giant-title">GreenMart Ekosistem</h1>
+                    <p class="hero-subtitle">
+                        Tukarkan Green Points dari hasil daur ulangmu atau beli produk ramah lingkungan dengan harga terbaik. Dukung terus ekonomi sirkular untuk lingkungan yang lebih bersih dan berkelanjutan!
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#productGrid" class="btn-hero-primary">Mulai Belanja</a>
+                        <a href="dropoff.html" class="btn-hero-secondary">Kumpulkan Poin</a>
+                    </div>
+                </div>
+
+                <!-- Sisi Kanan (Gambar & Floating Card) -->
+                <div class="hero-right">
+                    <div class="hero-image-wrapper">
+                        <img src="assets/greenmart.jpg" alt="Eco Hero" class="hero-person-img" onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600&auto=format&fit=crop'">
+                        
+                        <div class="floating-stats-card">
+                            <div class="fs-icon"><i class='bx bx-check-shield'></i></div>
+                            <div class="fs-text">
+                                <strong id="heroUserPoints" data-target="1240">0 Poin</strong>
+                                <span>Total Poin Terkumpul</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. PROMO BANNERS -->
+        <section class="promo-banners-section">
+            <div class="promo-grid">
+                <div class="promo-card promo-bg-green animate-on-scroll">
+                    <div class="promo-content">
+                        <h3>CASHBACK 20%<br>PENUKARAN POIN</h3>
+                        <p>Dapatkan cashback poin untuk setiap penukaran produk hijau minggu ini.</p>
+                        <button class="promo-btn"><i class='bx bx-chevron-right'></i></button>
+                    </div>
+                    <div class="promo-blob"><img src="assets/cashback.jpg" alt="Tumbler" onerror="this.src='https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=200'"></div>
+                </div>
+                <div class="promo-card promo-bg-purple animate-on-scroll">
+                    <div class="promo-content">
+                        <h3>DISKON VOUCHER<br>MAKANAN SEHAT</h3>
+                        <p>Tukar poin dengan voucher makanan sehat di mitra terdekat kami.</p>
+                        <button class="promo-btn"><i class='bx bx-chevron-right'></i></button>
+                    </div>
+                    <div class="promo-blob"><img src="assets/voucher.jpg" alt="Voucher" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=200'"></div>
+                </div>
+                <div class="promo-card promo-bg-yellow animate-on-scroll">
+                    <div class="promo-content">
+                        <h3>BUNDLING HEMAT<br>ALAT MANDI ECO</h3>
+                        <p>Paket sikat gigi bambu dan sabun organik dengan harga spesial.</p>
+                        <button class="promo-btn"><i class='bx bx-chevron-right'></i></button>
+                    </div>
+                    <div class="promo-blob"><img src="assets/sikat.jpg" alt="Sikat Gigi" onerror="this.src='https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=200'"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. KATEGORI & PRODUK GRID -->
+        <section class="products-section animate-on-scroll" id="productGrid">
+            <div class="section-title-wrapper">
+                <h2>Pilihan Terhijau Hari Ini</h2>
+            </div>
+            
+            <div class="filter-controls-row">
+                <div class="modern-search-bar">
+                    <i class='bx bx-search'></i>
+                    <input type="text" id="searchInput" placeholder="Cari tumbler, tas kain, voucher...">
+                </div>
+
+                <div class="category-pills-wrapper">
+                    <div class="category-pills" id="categoryTabs">
+                        <button class="cat-pill active" data-filter="all">Semua Produk</button>
+                        <button class="cat-pill" data-filter="produk">Produk Fisik</button>
+                        <button class="cat-pill" data-filter="voucher">E-Voucher</button>
+                        <button class="cat-pill" data-filter="pupuk">Pupuk Organik</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid (Lengkap 12 Produk) -->
+            <div class="modern-product-grid">
+                
+                <!-- Product Card 1 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 750 Poin</div>
+                        <img src="assets/tumbler.jpg" alt="Tumbler" onerror="this.src='https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Tumbler Stainless Eco</h4>
+                    <span class="mod-vendor">Mitra: ZeroWaste ID</span>
+                    <div class="mod-price"><strong>Rp 75.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 300 Poin</div>
+                        <img src="assets/tas-plastik.jpg" alt="Totebag" onerror="this.src='https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Tas Belanja Kanvas</h4>
+                    <span class="mod-vendor">Mitra: KainLokal</span>
+                    <div class="mod-price"><strong>Rp 30.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="mod-card" data-category="voucher">
+                    <div class="mod-img">                    
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 500 Poin</div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=300" alt="Voucher">
+                    </div>
+                    <h4 class="mod-title">Voucher GoPay 50K</h4>
+                    <span class="mod-vendor">Kategori: E-Wallet</span>
+                    <div class="mod-price"><strong>Rp 51.500</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="mod-card" data-category="pupuk">
+                    <div class="mod-img">                
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 450 Poin</div>
+                        <img src="assets/pupuk.jpg" alt="Bibit" onerror="this.src='https://images.unsplash.com/photo-1599598425947-330026294711?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Pupuk Organik</h4>
+                    <span class="mod-vendor">Mitra: TaniBali</span>
+                    <div class="mod-price"><strong>Rp 45.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 150 Poin</div>
+                        <img src="assets/sikat-gigi.jpg" onerror="this.src='https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Sikat Gigi Bambu</h4>
+                    <span class="mod-vendor">Mitra: ZeroWaste ID</span>
+                    <div class="mod-price"><strong>Rp 15.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 200 Poin</div>
+                        <img src="assets/dompet.jpg" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Dompet Eco</h4>
+                    <span class="mod-vendor">Mitra: Eco bali</span>
+                    <div class="mod-price"><strong>Rp 20.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 1000 Poin</div>
+                        <img src="assets/lampu-tidur.jpg" onerror="this.src='https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Lampu Tidur</h4>
+                    <span class="mod-vendor">Mitra: RT Gen Z</span>
+                    <div class="mod-price"><strong>Rp 50.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 250 Poin</div>
+                        <img src="assets/hiasan-dinding.jpg" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Hiasan dinding</h4>
+                    <span class="mod-vendor">Mitra: Eco Bali</span>
+                    <div class="mod-price"><strong>Rp 25.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 9 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 1500 Poin</div>
+                        <img src="assets/lampu-ruangan.jpg" onerror="this.src='https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Lampu Ruangan</h4>
+                    <span class="mod-vendor">Mitra: Lestari Bali</span>
+                    <div class="mod-price"><strong>Rp 100.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 10 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 4000 Poin</div>
+                        <img src="assets/meja.jpg" onerror="this.src='https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Meja Daur Ulang</h4>
+                    <span class="mod-vendor">Mitra: ZeroWaste</span>
+                    <div class="mod-price"><strong>Rp 400.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+                <!-- Product Card 11 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 500 Poin</div>
+                        <img src="assets/karpet.jpg" onerror="this.src='https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Karpet</h4>
+                    <span class="mod-vendor">Mitra: ZeroWaste</span>
+                    <div class="mod-price"><strong>Rp 50.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut </a>
+                </div>
+
+                <!-- Product Card 12 -->
+                <div class="mod-card" data-category="produk">
+                    <div class="mod-img">
+                        <div class="card-point-badge"><i class='bx bxs-star'></i> 400 Poin</div>
+                        <img src="assets/tudung-saji.jpg" onerror="this.src='https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=300'">
+                    </div>
+                    <h4 class="mod-title">Tudung Saji</h4>
+                    <span class="mod-vendor">Mitra: ZeroWaste</span>
+                    <div class="mod-price"><strong>Rp 40.000</strong></div>
+                    <a href="detail-produk.html" class="btn-detail">Lebih lanjut</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer animate-on-scroll">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col-main">
+                    <div class="footer-brand-stack">
+                        <div class="footer-logo-large">
+                            <i class='bx bx-recycle'></i>
+                        </div>
+                        <div class="footer-brand-text-group">
+                            <p class="footer-desc">
+                                Solusi pengelolaan sampah cerdas Indonesia yang menggabungkan kecanggihan AI dengan ekosistem sirkular untuk generasi yang lebih bersih dan sehat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-tiktok'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <a href="#">AI Scanner Sampah</a>
+                    <a href="#">Peta Drop-off Point</a>
+                    <a href="#">Point</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <a href="#">Pusat Bantuan</a>
+                    <a href="#">Komunitas</a>
+                    <a href="#">Ketentuan Layanan</a>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4>Hubungi Kami</h4>
+                    <a href="mailto:halo@greenloop.id"><i class='bx bx-envelope'></i> halo@greenloop.id</a>
+                    <a href="tel:+622150012345"><i class='bx bx-phone'></i> +62 21 500-123-45</a>
+                    <div class="location-text"><i class='bx bx-map'></i> Denpasar, Bali - Indonesia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-giant-text-container">
+            <h1 class="giant-brand-text">
+                <span style="--i:1;">G</span><span style="--i:2;">R</span><span style="--i:3;">E</span><span style="--i:4;">E</span><span style="--i:5;">N</span><span style="--i:6;">L</span><span style="--i:7;">O</span><span style="--i:8;">O</span><span style="--i:9;">P</span>
+            </h1>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 GREENLOOP. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Terms & Conditions</a>         
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT TERPISAH -->
+    <script src="js/marketplace.js"></script>
+</body>
+</html>

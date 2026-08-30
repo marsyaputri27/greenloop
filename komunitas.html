@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREENLOOP | Komunitas & Diskusi Sirkular</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='lib/boxicons/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/komunitas.css">
+</head>
+<body>
+
+    <!-- OVERLAY UNTUK MOBILE DRAWER -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- MOBILE DRAWER (MENU SAMPING) -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <!-- Header Drawer -->
+        <div class="drawer-header">
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+            <button class="close-drawer-btn" id="closeDrawerBtn">
+                <i class='bx bx-x'></i>
+            </button>
+        </div>
+
+        <!-- Profil User di Drawer -->
+        <div class="drawer-user-info">
+            <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+            <div class="info-text">
+                <span class="d-name">Tom Edy</span>
+                <span class="d-email">tomedyimut@email.com</span>
+            </div>
+        </div>
+
+        <!-- Bagian Navigasi Utama -->
+        <div class="drawer-section-title">NAVIGASI</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="index-login.html" class="drawer-item">
+                    <i class='bx bx-home-alt'></i> Beranda
+                </a>
+            </li>
+            <li class="drawer-dropdown">
+                <a href="#" class="drawer-item drawer-drop-btn" id="drawerLayananBtn">
+                    <span style="display: flex; align-items: center; gap: 14px;">
+                        <i class='bx bx-grid-alt'></i> Layanan
+                    </span>
+                    <i class='bx bx-chevron-down drop-icon'></i>
+                </a>
+                <div class="drawer-submenu" id="drawerSubmenu">
+                    <a href="dashboard.html">AI Scanner</a>
+                    <a href="dropoff.html">Drop-off Point</a>
+                </div>
+            </li>
+            <li>
+                <a href="marketplace.html" class="drawer-item">
+                    <i class='bx bx-store'></i> GreenMart
+                </a>
+            </li>
+            <li>
+                <a href="komunitas.html" class="drawer-item active">
+                    <i class='bx bx-group'></i> Komunitas
+                </a>
+            </li>
+        </ul>
+
+        <!-- Bagian Akun -->
+        <div class="drawer-section-title">AKUN</div>
+        <ul class="drawer-nav">
+            <li>
+                <a href="profile.html" class="drawer-item">
+                    <i class='bx bx-user'></i> Profile Saya
+                </a>
+            </li>
+            <li>
+                <a href="login.html" class="drawer-item logout-btn">
+                    <i class='bx bx-log-out'></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- NAVBAR MELAYANG DENGAN EFEK BLUR -->
+    <nav class="navbar-pill">
+        <!-- Wrapper Kiri (Hamburger & Logo) -->
+        <div class="nav-left">
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class='bx bx-menu'></i>
+            </button>
+            <div class="logo">
+                <i class='bx bx-recycle'></i> GREENLOOP
+            </div>
+        </div>
+        
+        <!-- Menu di Tengah (Desktop Saja) -->
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index-login.html">Beranda</a></li>
+            
+            <!-- Dropdown Layanan -->
+            <li class="dropdown">
+                <a href="#" class="drop-btn">Layanan <i class='bx bx-chevron-down'></i></a>
+                <div class="dropdown-content">
+                    <a href="dashboard.html" class="dropdown-item">
+                        <i class='bx bx-scan'></i>
+                        <div class="dropdown-text">
+                            <span class="title">AI Scanner</span>
+                            <span class="desc">Kenali jenis sampah & estimasi poin secara instan</span>
+                        </div>
+                    </a>
+                    <a href="dropoff.html" class="dropdown-item">
+                        <i class='bx bx-map-pin'></i>
+                        <div class="dropdown-text">
+                            <span class="title">Drop-off Point</span>
+                            <span class="desc">Cari lokasi mitra penyetoran terdekat</span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <li><a href="marketplace.html">GreenMart</a></li>
+            <li><a href="komunitas.html" class="active">Komunitas</a></li>
+        </ul>
+
+        <!-- Bagian Kanan: Notifikasi & Profil -->
+        <div class="nav-actions">
+            <!-- Tombol & Kotak Notifikasi -->
+            <div class="notif-dropdown">
+                <div class="notif-btn">
+                    <i class='bx bx-bell' title="Notifikasi"></i>
+                    <span class="notif-badge"></span>
+                </div>
+                <div class="notif-menu">
+                    <div class="notif-header">
+                        <h4>Notifikasi</h4>
+                        <a href="#">Tandai semua dibaca</a>
+                    </div>
+                    <div class="notif-list">
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-green"><i class='bx bx-scan'></i></div>
+                            <div class="notif-content">
+                                <p>Analisis sampah harian Anda sudah siap!</p>
+                                <span>2 menit yang lalu</span>
+                            </div>
+                        </a>
+                        <a href="#" class="notif-item unread">
+                            <div class="notif-icon bg-orange"><i class='bx bx-trophy'></i></div>
+                            <div class="notif-content">
+                                <p>Selamat! Kamu menyelesaikan challenge 3 hari.</p>
+                                <span>1 jam yang lalu</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="notif-footer">
+                        <a href="#">Lihat semua notifikasi</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profil User dengan Dropdown -->
+            <div class="user-profile-dropdown">
+                <div class="user-profile-btn">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Profil">
+                    <i class='bx bx-chevron-down'></i>
+                </div>
+                <div class="profile-menu">
+                    <div class="profile-user-info">
+                        <span class="profile-name">Tom Edy</span>
+                        <span class="profile-email">tomedyimut@email.com</span>
+                    </div>
+                    <div class="profile-divider"></div>
+                    <a href="profile.html"><i class='bx bx-user'></i> Profile</a>
+                    <a href="login.html" class="logout"><i class='bx bx-log-out'></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION HERO SLIDER KOMUNITAS -->
+    <section class="community-hero animate-on-scroll">
+        <div class="comm-hero-container">
+            <div class="hero-header-flex animate-on-scroll">
+                <div>
+                    <h2>Komunitas <span style="color: #059669;">GREENLOOP</span></h2>
+                    <p>Dapatkan inspirasi harian, jadwal aksi, dan kolaborasi dari komunitas pecinta alam</p>
+                </div>
+                <div class="hero-slider-nav">
+                    <button class="slider-btn prev-btn"><i class='bx bx-chevron-left'></i></button>
+                    <button class="slider-btn next-btn"><i class='bx bx-chevron-right'></i></button>
+                </div>
+            </div>
+
+            <div class="hero-cards-slider-wrapper" id="heroWrapper">
+                <div class="hero-cards-track animate-on-scroll" id="heroSliderTrack">
+                    <!-- Card 1 -->
+                    <div class="hero-showcase-card">
+                        <img src="assets/pantai (1).jpg" alt="Clean Up Pantai" onerror="this.src='https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?q=80&w=400'">
+                        <div class="hero-card-content">
+                            <span class="badge-tag event-badge">Aksi Bersih</span>
+                            <h3>Clean-Up Serentak Pantai Kuta Bersama Pegiat Alam</h3>
+                            <div class="hero-card-author">
+                                <img src="https://i.pravatar.cc/100?img=32" alt="Author">
+                                <span>Komunitas EcoBali</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="hero-showcase-card">
+                        <img src="assets/pilah_sampah.jpg" alt="Workshop Daur Ulang" onerror="this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=400'">
+                        <div class="hero-card-content">
+                            <span class="badge-tag workshop-badge">Aksi Bersih</span>
+                            <h3>Daur Ulang Sampah Plastik Rumah Tangga</h3>
+                            <div class="hero-card-author">
+                                <img src="https://i.pravatar.cc/100?img=12" alt="Author">
+                                <span>Dr. Sarah Wijaya</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="hero-showcase-card">
+                        <img src="assets/sosialisasi.jpg" alt="Konservasi Hutan" onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=400'">
+                        <div class="hero-card-content">
+                            <span class="badge-tag nature-badge">Sosialisasi</span>
+                            <h3>Sosialisasi Sampah Di Lingkungan Sekolah</h3>
+                            <div class="hero-card-author">
+                                <img src="https://i.pravatar.cc/100?img=68" alt="Author">
+                                <span>Aliansi Rimba Nusantara</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slider-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTEN UTAMA KOMUNITAS -->
+    <section class="community-main" id="feed-section">
+        <div class="community-grid-layout">
+            
+            <!-- KOLOM KIRI: SIDEBAR (Pahlawan & Event) -->
+            <div class="sidebar-column">
+                
+                <!-- Pahlawan Daur Ulang -->
+                <div class="sidebar-card leaderboard-card animate-on-scroll">
+                    <div class="sidebar-title">
+                        <h3><i class='bx bx-trophy text-orange'></i> Pahlawan Bumi</h3>
+                        <a href="#">Minggu Ini</a>
+                    </div>
+                    <div class="leaderboard-list">
+                        <div class="lb-item">
+                            <span class="lb-rank rank-1">1</span>
+                            <img src="https://i.pravatar.cc/100?img=12" alt="User">
+                            <div class="lb-info">
+                                <h5>Rian Pratama</h5>
+                                <p>4,250 Poin</p>
+                            </div>
+                        </div>
+                        <div class="lb-item">
+                            <span class="lb-rank rank-2">2</span>
+                            <img src="https://i.pravatar.cc/100?img=25" alt="User">
+                            <div class="lb-info">
+                                <h5>Dewi Lestari</h5>
+                                <p>3,890 Poin</p>
+                            </div>
+                        </div>
+                        <div class="lb-item">
+                            <span class="lb-rank rank-3">3</span>
+                            <img src="https://i.pravatar.cc/100?img=50" alt="User">
+                            <div class="lb-info">
+                                <h5>Ahmad Fauzi</h5>
+                                <p>3,420 Poin</p>
+                            </div>
+                        </div>
+                        <div class="lb-item highlight-me">
+                            <span class="lb-rank">4</span>
+                            <img src="https://i.pravatar.cc/100?img=11" alt="User">
+                            <div class="lb-info">
+                                <h5>Tom Edy (Anda)</h5>
+                                <p>2,910 Poin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Mendatang -->
+                <div class="sidebar-card event-card animate-on-scroll">
+                    <div class="sidebar-title">
+                        <h3><i class='bx bx-calendar-event text-green'></i> Event Mendatang</h3>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="month">AUG</span>
+                            <span class="day">24</span>
+                        </div>
+                        <div class="event-desc">
+                            <h4>Clean Up Pantai Kuta</h4>
+                            <p><i class='bx bx-time'></i> 07:00 WITA - Selesai</p>
+                            <a href="#" class="event-join-link">Gabung Event <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="month">AUG</span>
+                            <span class="day">30</span>
+                        </div>
+                        <div class="event-desc">
+                            <h4>Workshop Daur Ulang Plastik</h4>
+                            <p><i class='bx bx-time'></i> 13:30 WITA</p>
+                            <a href="#" class="event-join-link">Gabung Event <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- KOLOM KANAN: FEED POSTINGAN & KOMENTAR -->
+            <div class="feed-column">
+                
+                <!-- Input Postingan Baru -->
+                <div class="inline-post-creator animate-on-scroll">
+                    <div class="post-creator-top">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Avatar Anda">
+                        <div class="textarea-wrapper">
+                            <textarea id="postInputText" rows="1" placeholder="Bagikan aksi daur ulang hari ini..."></textarea>
+                            <button class="wa-send-btn" title="Kirim"><i class='bx bxs-send'></i></button>
+                        </div>
+                    </div>
+                    <div class="post-creator-bottom" id="postActionsRow">
+                        <div class="pc-icons">
+                            <div class="icon-btn"><i class='bx bx-image-add'></i> Foto</div>
+                            <div class="icon-btn"><i class='bx bx-map'></i> Lokasi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Kategori Feed -->
+                <div class="feed-filters">
+                    <button class="filter-btn active animate-on-scroll">Semua Postingan</button>
+                    <button class="filter-btn animate-on-scroll">Aksi Daur Ulang</button>
+                    <button class="filter-btn animate-on-scroll">Diskusi & Tanya</button>
+                    <button class="filter-btn animate-on-scroll">Event & Clean-up</button>
+                </div>
+
+                <!-- Post Card 1 -->
+                <div class="post-card animate-on-scroll">
+                    <div class="post-header">
+                        <div class="post-user-info">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Avatar">
+                            <div>
+                                <h4>Siti Rahma</h4>
+                                <span>2 jam yang lalu â€¢ <i class='bx bx-map-pin'></i> Denpasar</span>
+                            </div>
+                        </div>
+                        <button class="post-options"><i class='bx bx-dots-vertical-rounded'></i></button>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-text-wrap">
+                            <p class="post-text">Hari ini berhasil menyetor 5kg botol plastik PET ke Drop-off Point terdekat berkat bantuan fitur AI Scanner GREENLOOP! Dapat tambahan 150 poin yang langsung ditukar sama tumbler ramah lingkungan. Yuk,, yang lain pada setor juga biar lingkungan makin bersih dan kita dapet untung bareng-bareng! Jangan biarkan plastik merusak lautan kita tercinta. ðŸŒ¿â™»ï¸</p>
+                            <span class="read-more-btn">Baca selengkapnya</span>
+                        </div>
+                        
+                        <div class="post-media">
+                            <img src="assets/setor.jpg" alt="Aksi Daur Ulang" onerror="this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=600'">
+                        </div>
+                    </div>
+                    
+                    <div class="post-footer-stats">
+                        <span><i class='bx bxs-heart text-red'></i> 42 Suka</span>
+                        <span>8 Komentar</span>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn like-btn"><i class='bx bx-heart'></i> Suka</button>
+                        <button class="action-btn comment-toggle-btn"><i class='bx bx-message-rounded'></i> Komentar</button>
+                        <button class="action-btn"><i class='bx bx-share-alt'></i> Bagikan</button>
+                    </div>
+
+                    <!-- Kolom Komentar Tersembunyi -->
+                    <div class="comments-section">
+                        <div class="comment-item">
+                            <img src="https://i.pravatar.cc/100?img=1" alt="User">
+                            <div class="comment-bubble">
+                                <b>Budi Santoso</b>
+                                <p>Keren banget kak Siti! Boleh share lokasi drop-off nya?</p>
+                            </div>
+                        </div>
+                        <div class="comment-input-area">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Anda">
+                            <input type="text" placeholder="Tulis komentar...">
+                            <button><i class='bx bx-send'></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post Card 2 -->
+                <div class="post-card animate-on-scroll">
+                    <div class="post-header">
+                        <div class="post-user-info">
+                            <img src="https://i.pravatar.cc/150?img=68" alt="Avatar">
+                            <div>
+                                <h4>Budi Santoso</h4>
+                                <span>Kemarin â€¢ <i class='bx bx-map-pin'></i> Badung</span>
+                            </div>
+                        </div>
+                        <button class="post-options"><i class='bx bx-dots-vertical-rounded'></i></button>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-text-wrap">
+                            <p class="post-text">Ada yang mau ikut aksi bersih-bersih Pantai Kuta weekend ini bareng komunitas Greenloop? Kita kumpul jam 07.00 WITA bawa tumbler sendiri ya! Mari jaga Bali tetap bersih. ðŸŒŠðŸ§¹</p>
+                        </div>
+                    </div>
+                    <div class="post-footer-stats">
+                        <span><i class='bx bxs-heart text-red'></i> 89 Suka</span>
+                        <span>24 Komentar</span>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn like-btn active"><i class='bx bxs-heart text-red'></i> Disukai</button>
+                        <button class="action-btn comment-toggle-btn"><i class='bx bx-message-rounded'></i> Komentar</button>
+                        <button class="action-btn"><i class='bx bx-share-alt'></i> Bagikan</button>
+                    </div>
+
+                    <!-- Kolom Komentar Tersembunyi -->
+                    <div class="comments-section">
+                        <div class="comment-input-area">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Anda">
+                            <input type="text" placeholder="Tulis komentar...">
+                            <button><i class='bx bx-send'></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SITUS -->
+    <footer class="site-footer animate-on-scroll">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-col-main">
+                    <div class="footer-brand-stack">
+                        <div class="footer-logo-large">
+                            <i class='bx bx-recycle'></i>
+                        </div>
+                        <div class="footer-brand-text-group">
+                            <p class="footer-desc">
+                                Solusi pengelolaan sampah cerdas Indonesia yang menggabungkan kecanggihan AI dengan ekosistem sirkular untuk generasi yang lebih bersih dan sehat.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="footer-socials">
+                        <a href="#"><i class='bx bxl-instagram'></i></a>
+                        <a href="#"><i class='bx bxl-tiktok'></i></a>
+                        <a href="#"><i class='bx bxl-youtube'></i></a>
+                        <a href="#"><i class='bx bxl-facebook'></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <a href="#">AI Scanner Sampah</a>
+                    <a href="#">Peta Drop-off Point</a>
+                    <a href="#">Point</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dukungan</h4>
+                    <a href="#">Pusat Bantuan</a>
+                    <a href="#">Komunitas</a>
+                    <a href="#">Ketentuan Layanan</a>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4>Hubungi Kami</h4>
+                    <a href="mailto:halo@greenloop.id"><i class='bx bx-envelope'></i> halo@greenloop.id</a>
+                    <a href="tel:+622150012345"><i class='bx bx-phone'></i> +62 21 500-123-45</a>
+                    <div class="location-text"><i class='bx bx-map'></i> Denpasar, Bali - Indonesia</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-giant-text-container">
+            <h1 class="giant-brand-text">
+                <span style="--i:1;">G</span><span style="--i:2;">R</span><span style="--i:3;">E</span><span style="--i:4;">E</span><span style="--i:5;">N</span><span style="--i:6;">L</span><span style="--i:7;">O</span><span style="--i:8;">O</span><span style="--i:9;">P</span>
+            </h1>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 GREENLOOP. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/komunitas.js"></script>
+</body>
+</html>
+
+
