@@ -1,0 +1,630 @@
+/* =========================================
+   BACKGROUND SLIDESHOW LUAR
+   ========================================= */
+.bg-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    filter: blur(3px); 
+    transform: scale(1.05);
+    animation: backgroundFade 12s infinite;
+}
+
+.slide-img:nth-child(1) { animation-delay: 0s; }
+.slide-img:nth-child(2) { animation-delay: 4s; }
+.slide-img:nth-child(3) { animation-delay: 8s; }
+
+@keyframes backgroundFade {
+    0% { opacity: 0; transform: scale(1.03); }
+    15% { opacity: 1; transform: scale(1.05); } 
+    33% { opacity: 1; transform: scale(1.06); }
+    48% { opacity: 0; transform: scale(1.08); } 
+    100% { opacity: 0; }
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+/* =========================================
+   NAVBAR MELAYANG DENGAN EFEK BLUR 
+   ========================================= */
+.navbar-pill {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mobile-menu-btn {
+    display: none; 
+    background-color: #f3f4f6;
+    border: none;
+    font-size: 24px;
+    color: #111827;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.mobile-menu-btn:hover { background-color: #e5e7eb; }
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #059669; 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Menu Navigasi Tengah (Desktop) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li > a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links > li > a:hover, 
+.nav-links > li > a.active { color: #059669; }
+
+.nav-links > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #059669;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after { transform: scaleX(1); }
+
+.drop-btn .bx-chevron-down { transition: transform 0.3s ease; }
+.dropdown:hover .drop-btn .bx-chevron-down { transform: rotate(180deg); }
+
+.dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    width: 260px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    border-radius: 16px;
+    padding: 10px;
+    z-index: 1000;
+    text-align: left;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    text-align: left;
+}
+.dropdown-item:hover { background-color: #f0fdf4; }
+
+.dropdown-item i { font-size: 20px; color: #059669; margin-top: 2px; flex-shrink: 0; }
+
+.dropdown-text {
+    text-align: left;
+    width: 100%;
+}
+
+.dropdown-text .title {
+    display: block; font-size: 13px; font-weight: 600; color: #111827; text-align: left;
+}
+.dropdown-item:hover .dropdown-text .title { color: #059669; }
+.dropdown-text .desc { display: block; font-size: 11px; color: #6b7280; line-height: 1.3; text-align: left; }
+
+.dropdown:hover .dropdown-content { display: block; }
+
+/* Bagian Actions (Desktop) */
+.nav-actions { display: flex; align-items: center; gap: 15px; }
+.notif-dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
+
+.notif-btn { 
+    position: relative; 
+    background: none; 
+    border: none; 
+    padding: 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+}
+.notif-btn .bx-bell { font-size: 22px; color: #4b5563; transition: color 0.2s ease; display: block; line-height: 1; }
+.notif-btn:hover .bx-bell, .notif-dropdown:hover .notif-btn .bx-bell { color: #059669; }
+.notif-badge { position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%; border: 2px solid #ffffff; }
+
+.notif-menu {
+    display: none; position: absolute; top: 100%; right: -20px; width: 320px;
+    background-color: #ffffff; box-shadow: 0 15px 35px rgba(0,0,0,0.12); border-radius: 20px; padding: 15px 0; z-index: 1000;
+}
+.notif-header { display: flex; justify-content: space-between; align-items: center; padding: 0 20px 12px 20px; border-bottom: 1px solid #f3f4f6; }
+.notif-header h4 { font-size: 15px; font-weight: 700; color: #111827; }
+.notif-header a { font-size: 12px; color: #059669; text-decoration: none; font-weight: 500; }
+.notif-header a:hover { text-decoration: underline; }
+
+.notif-list { max-height: 250px; overflow-y: auto; }
+.notif-item { display: flex; gap: 12px; padding: 12px 20px; text-decoration: none; transition: background 0.2s; border-bottom: 1px solid #f9fafb; text-align: left; }
+.notif-item:hover { background-color: #f9fafb; }
+.notif-icon { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.notif-icon.bg-green { background-color: #d1fae5; color: #059669; }
+.notif-icon.bg-orange { background-color: #fef3c7; color: #d97706; }
+.notif-content p { font-size: 12px; color: #1f2937; font-weight: 500; line-height: 1.4; margin-bottom: 3px; text-align: left; }
+.notif-content span { font-size: 10px; color: #9ca3af; text-align: left; display: block; }
+
+.notif-footer { text-align: center; padding-top: 10px; }
+.notif-footer a { font-size: 12px; color: #4b5563; text-decoration: none; font-weight: 600; }
+.notif-footer a:hover { color: #059669; }
+.notif-dropdown:hover .notif-menu { display: block; }
+
+.user-profile-dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
+.user-profile-btn { display: flex; align-items: center; gap: 8px; cursor: pointer; background: none; border: none; padding: 0; }
+.user-profile-btn img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #e5e7eb; }
+.user-profile-btn .bx-chevron-down { color: #4b5563; font-size: 18px; transition: transform 0.3s ease; display: inline-block; }
+.profile-menu { display: none; position: absolute; top: 100%; right: 0; background-color: #ffffff; width: 210px; box-shadow: 0 15px 35px rgba(0,0,0,0.12); border-radius: 18px; padding: 12px 0; z-index: 1000; text-align: left; }
+.profile-user-info { padding: 5px 18px 12px 18px; }
+.profile-name { display: block; font-size: 14px; font-weight: 700; color: #111827; }
+.profile-email { display: block; font-size: 11px; color: #6b7280; }
+.profile-divider { height: 1px; background-color: #f3f4f6; margin-bottom: 5px; }
+.profile-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 18px; text-decoration: none; font-size: 13px; color: #4b5563; transition: background 0.2s, color 0.2s; text-align: left; }
+.profile-menu a:hover { background-color: #f0fdf4; color: #059669; }
+.profile-menu a.logout:hover { background-color:#f0fdf4;  color:#059669; }
+.user-profile-dropdown:hover .profile-menu { display: block; }
+.user-profile-dropdown:hover .user-profile-btn .bx-chevron-down { transform: rotate(180deg); }
+
+/* =========================================
+   STYLE UNTUK MOBILE DRAWER MENU
+   ========================================= */
+.drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.drawer-overlay.active {
+    opacity: 1; pointer-events: auto;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    transform: translateX(-100%);
+    width: 85%; 
+    max-width: 330px; 
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1001;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: flex; 
+    flex-direction: column;
+    overflow-y: auto;
+    font-family: 'Poppins', sans-serif;
+    padding: 15px 12px 30px 12px;
+    text-align: left;
+}
+
+.mobile-drawer.active {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 12px 15px 12px;
+}
+.drawer-header .logo { font-size: 20px; font-weight: 700; color: #059669; }
+.close-drawer-btn {
+    background: none; border: none; font-size: 24px; color: #111827; cursor: pointer;
+}
+
+.drawer-user-info {
+    display: flex; align-items: center; gap: 12px;
+    padding: 15px 14px; background-color: #f4f4fa;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.drawer-user-info img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+.drawer-user-info .d-name { display: block; font-weight: 700; font-size: 14px; color: #111827; }
+.drawer-user-info .d-email { display: block; font-size: 11px; color: #6b7280; }
+
+.drawer-section-title {
+    font-size: 11px; font-weight: 700; color: #9ca3af; letter-spacing: 1px;
+    padding: 12px 14px 6px 14px; text-transform: uppercase;
+    text-align: left;
+}
+
+.drawer-nav { list-style: none; padding: 0; margin: 0; text-align: left; }
+.drawer-nav li { margin-bottom: 4px; }
+
+.drawer-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 16px; text-decoration: none; font-size: 15px; font-weight: 500;
+    color: #111827; border-radius: 18px; transition: all 0.2s;
+    border-left: none; 
+    position: relative;
+    text-align: left;
+}
+.drawer-item i { font-size: 20px; color: #111827; }
+
+.drawer-drop-btn { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.drawer-drop-btn .drop-icon { 
+    font-size: 18px; 
+    transition: transform 0.3s ease; 
+    color: #6b7280; 
+    display: inline-block !important; 
+}
+.drawer-drop-btn.open .drop-icon { 
+    transform: rotate(180deg); 
+}
+
+.drawer-item:hover:not(.active) { 
+    background-color: #f0fdf4; 
+    color: #059669;
+}
+.drawer-item:hover:not(.active) i {
+    color: #059669;
+}
+
+.drawer-item.active {
+    background-color: #ecfdf5; 
+    color: #059669;
+    font-weight: 600;
+}
+.drawer-item.active i {
+    color: #059669;
+}
+.drawer-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 22px;
+    background-color: #059669;
+    border-radius: 0 4px 4px 0;
+}
+
+.drawer-item.logout-btn {
+    color: #059669;
+    margin-top: 5px;
+}
+.drawer-item.logout-btn i {
+    color: #059669;
+}
+.drawer-item.logout-btn:hover {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.drawer-submenu {
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+    padding-left: 50px; display: flex; flex-direction: column; gap: 10px;
+    text-align: left;
+}
+.drawer-submenu a {
+    text-decoration: none; color: #4b5563; font-size: 14px; display: block; padding: 2px 0;
+    font-weight: 400;
+    text-align: left;
+}
+.drawer-submenu a:hover { color: #059669; }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.site-footer { 
+    background-color: #ffffff; 
+    padding: 70px 0 0 0; 
+    margin-top: 50px; 
+    border-top: 1px solid #e5e7eb; 
+    font-family: 'Poppins', sans-serif; 
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+}
+.footer-container { 
+    width: 95%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.footer-grid { 
+    display: grid; 
+    grid-template-columns: 2fr 1fr 1fr 1.2fr; 
+    gap: 40px; 
+    margin-bottom: 50px; 
+}
+.footer-col-main { display: flex; flex-direction: column; gap: 22px; }
+.footer-brand-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.footer-logo-large { font-size: 58px; color: #059669; line-height: 1; display: flex; align-items: center; justify-content: center; background: transparent; border: none; }
+.footer-brand-text-group { max-width: 300px; }
+.footer-col-main .footer-desc { font-size: 13.5px; color: #4b5563; line-height: 1.55; margin: 0; text-align: left; }
+.footer-socials { display: flex; gap: 12px; }
+.footer-socials a { width: 40px; height: 40px; background-color: #f3f4f6; color: #111827; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; text-decoration: none; transition: all 0.3s ease; }
+.footer-socials a:hover { background-color: #059669; color: #ffffff; transform: translateY(-3px); }
+.footer-giant-text-container { width: 100%; overflow: hidden; text-align: center; padding: 10px 0 0 0; line-height: 1; }
+.giant-brand-text { font-size: 14vw; font-weight: 900; font-family: 'Poppins', sans-serif; letter-spacing: -2px; white-space: nowrap; user-select: none; margin: 0; display: flex; justify-content: center; }
+.giant-brand-text span { display: inline-block; color: #d1d5db; animation: colorFlow 2.5s ease-in-out infinite; animation-delay: calc(0.15s * var(--i)); }
+@keyframes colorFlow { 0%, 100% { color: #d1d5db; transform: translateY(0); } 50% { color: #059669; transform: translateY(-8px); } }
+.footer-col h4 { font-size: 16px; font-weight: 700; color: #111827; margin-bottom: 20px; text-align: left; }
+.footer-col a { display: block; font-size: 13.5px; color: #4b5563; text-decoration: none; margin-bottom: 12px; transition: color 0.3s ease; text-align: left; }
+.footer-col a:hover { color: #059669; }
+.contact-col a, .contact-col .location-text { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: #4b5563; margin-bottom: 14px; line-height: 1.5; text-align: left; }
+.contact-col i { font-size: 16px; color: #059669; margin-top: 2px; }
+.footer-bottom { width: 95%; max-width: 1200px; margin: 0 auto; padding: 20px 0; border-top: 1px solid #f3f4f6; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { font-size: 13px; color: #6b7280; text-align: left; }
+.footer-bottom-links { display: flex; align-items: center; gap: 15px; }
+.footer-bottom-links a { font-size: 13px; color: #6b7280; text-decoration: none; }
+.footer-bottom-links a:hover { color: #059669; }
+.footer-bottom-links .dot-sep { font-size: 16px; color: #d1d5db; }
+
+/* =========================================
+   RESPONSIF DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .notif-dropdown {
+        position: static; 
+        margin-bottom: 0;
+    }
+    
+    .notif-menu {
+        position: fixed;
+        top: 80px; 
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 360px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    
+    .navbar-pill { 
+        border-radius: 30px; 
+        padding: 10px 18px; 
+        width: 95%; 
+        display: flex;
+        align-items: center;
+    }
+    
+    .mobile-menu-btn { 
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-left { 
+        display: flex;
+        align-items: center;
+        gap: 12px; 
+    }
+
+    .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .logo { 
+        font-size: 20px !important; 
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .logo i {
+        font-size: 24px !important;
+    }
+
+    .nav-links { display: none !important; }
+
+    .user-profile-dropdown {
+        pointer-events: none !important; 
+    }
+    .user-profile-btn {
+        pointer-events: none !important;
+    }
+    .profile-menu {
+        display: none !important; 
+    }
+    .user-profile-btn .bx-chevron-down {
+        display: none !important;
+        pointer-events: none;
+    }
+
+    .notif-btn .bx-bell { font-size: 22px; color: #4b5563; transition: color 0.2s ease; display: block; margin-top: 15px; line-height: 1; }
+    .notif-btn:hover .bx-bell, .notif-dropdown:hover .notif-btn .bx-bell { color: #059669; }
+    .notif-badge { position: absolute; top: 12px; right: 4px; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%; border: 2px solid #ffffff; }
+
+}
+
+@media (max-width: 640px) {
+    .site-footer {
+        width: calc(95% - 20px); 
+        max-width: 1200px;
+        margin: 50px auto 0 auto; 
+        border-radius: 30px; 
+        box-shadow: 0 -5px 25px rgba(0,0,0,0.03); 
+    }
+
+    /* PENGATURAN TEKS DESKRIPSI FOOTER: RATA TENGAH & MARGIN 20px */
+    .footer-col-main .footer-desc {
+        text-align: center !important;
+        margin: 20px 0 !important;
+    }
+
+    .footer-grid { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+        text-align: center; 
+    }
+    .footer-brand-stack { 
+        align-items: center; 
+    }
+    .footer-brand-text-group { 
+        max-width: 100%; 
+        text-align: center; 
+    }
+    .footer-socials { 
+        justify-content: center; 
+    }
+    .contact-col a, .contact-col .location-text { 
+        justify-content: center; 
+        text-align: center;
+    }
+    .footer-col h4, 
+    .footer-col a {
+        text-align: center;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        width: 100%;
+    }
+    .footer-bottom p {
+        text-align: center;
+    }
+    .footer-bottom-links {
+        justify-content: center;
+    }
+
+    .giant-brand-text { font-size: 16vw; } 
+    .footer-logo-large { font-size: 45px; }
+}
+
+/* =========================================
+   PERBAIKAN RESPONSIF TOMBOL LOGIN NAVBAR
+   ========================================= */
+
+/* Pengaturan Default Desktop */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-nav-login {
+    background-color: #059669;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Penyesuaian Khusus Tampilan Mobile (Layar <= 768px atau 576px) */
+@media (max-width: 576px) {
+    .navbar-pill {
+        padding: 8px 12px !important; /* Memberikan ruang napas di tepi kiri-kanan navbar */
+    }
+
+    .nav-actions {
+        gap: 8px; /* Merapatkan jarak antar ikon notifikasi dan tombol login secara ideal */
+    }
+
+    .btn-nav-login {
+        padding: 6px 12px !important; /* Memperkecil padding tombol agar tidak terlalu memakan tempat */
+        font-size: 12px !important;    /* Menyesuaikan ukuran font agar pas di layar kecil */
+        border-radius: 40px;
+    }
+    
+    .btn-nav-login i {
+        font-size: 14px; /* Memperkecil ukuran ikon login agar proporsional */
+    }
+}
+

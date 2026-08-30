@@ -1,0 +1,584 @@
+/* =========================================
+   STYLE UNTUK HALAMAN DASHBOARD
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #111827;
+    margin: 0;
+    padding-top: 90px;
+    overflow-x: hidden;
+}
+
+/* Global Colors & Utilities */
+.text-green { color: #10b981; }
+.text-red { color: #ef4444; }
+.text-blue { color: #3b82f6; }
+.text-orange { color: #f59e0b; }
+.text-teal { color: #14b8a6; }
+.left-align { text-align: left !important; }
+
+/* Dashboard Wrapper - Diselaraskan dengan lebar dropoff-page-wrapper (1200px) */
+.dashboard-page-wrapper {
+    max-width: 1200px;
+    width: 95%;
+    margin: 40px auto 60px auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================================
+   HERO BANNER (Menggantikan dash-header)
+   ========================================= */
+.hero-box {
+    background: linear-gradient(to right, rgba(14, 11, 46, 0.9) 0%, rgba(14, 11, 46, 0.6) 100%), 
+                url('../assets/pilah.jpg') center/cover no-repeat;
+    border-radius: 24px;
+    padding: 50px 40px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.hero-badge {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.15); 
+    backdrop-filter: blur(8px);
+    color: #ffffff; 
+    padding: 6px 16px; 
+    border-radius: 50px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    margin-bottom: 15px;
+}
+
+.hero-content h1 { 
+    font-size: 36px; 
+    font-weight: 800; 
+    margin-bottom: 12px; 
+    letter-spacing: -1px; 
+    color: #ffffff;
+}
+
+.hero-content p { 
+    font-size: 14.5px; 
+    color: #e5e7eb; 
+    max-width: 600px; 
+    line-height: 1.6; 
+}
+
+/* =========================================
+   WORKSPACE GRID (KIRI: SCAN, KANAN: STATS+HASIL)
+   ========================================= */
+.workspace-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 60px;
+    align-items: stretch;
+}
+
+.workspace-col-left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* KIRI: Area Scan */
+.scan-area-box {
+    position: relative;
+    background: #ffffff;
+    border: 2px dashed #cbd5e1;
+    border-radius: 18px;
+    padding: 50px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.scan-area-box:hover {
+    border-color: #059669;
+    box-shadow: 0 15px 30px rgba(5, 150, 105, 0.08);
+    background: #fdfdfd;
+}
+
+.scan-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: radial-gradient(circle, rgba(5,150,105,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: width 0.5s, height 0.5s;
+}
+
+.scan-area-box:hover .scan-glow { width: 350px; height: 350px; }
+
+/* Preview Image Area */
+.image-preview-container {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.image-preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scan-icon-circle {
+    width: 90px;
+    height: 90px;
+    background: #ecfdf5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    z-index: 2;
+    transition: 0.3s;
+}
+
+.scan-area-box:hover .scan-icon-circle { transform: scale(1.08) rotate(5deg); background: #d1fae5; }
+.scan-icon-main { font-size: 45px; color: #059669; }
+
+.scan-area-box h3 { font-size: 20px; color: #111827; margin-bottom: 8px; z-index: 2; font-weight: 700; }
+.scan-area-box p { color: #6b7280; font-size: 14px; margin-bottom: 25px; z-index: 2; max-width: 320px; line-height: 1.5; }
+
+.btn-scan-action {
+    background-color: #059669;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.25);
+    font-family: inherit;
+}
+
+.btn-scan-action:hover { background-color: #047857; transform: translateY(-2px); }
+
+.btn-analyze-ready {
+    background-color: #10b981; 
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Animasi Proses AI */
+.ai-processing-inline {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.scanner-laser {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #059669;
+    box-shadow: 0 0 15px 2px #059669;
+    animation: scanLine 2s linear infinite;
+}
+
+@keyframes scanLine {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.processing-content { text-align: center; z-index: 2; }
+.spinning-logo-wrapper {
+    width: 80px;
+    height: 80px;
+    background: #ecfdf5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    font-size: 40px;
+    color: #059669;
+}
+#typed-output-inline { font-size: 18px; color: #111827; font-weight: 700; margin-bottom: 8px; }
+.processing-content p { color: #6b7280; font-size: 13.5px; }
+
+/* =========================================
+   KANAN: STATS & HASIL
+   ========================================= */
+.workspace-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.mini-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.mini-stat {
+    background: #ffffff;
+    padding: 16px 14px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: 0.3s;
+}
+
+.mini-stat:hover { transform: translateY(-3px); border-color: #e5e7eb; }
+
+.mini-stat .m-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.stat-green .m-icon { background: #ecfdf5; color: #059669; }
+.stat-purple .m-icon { background: #f3e8ff; color: #8b5cf6; }
+.stat-orange .m-icon { background: #fef3c7; color: #d97706; }
+
+.m-info .m-val { font-size: 18px; font-weight: 700; line-height: 1; color: #111827; }
+.m-info .m-unit { font-size: 11px; font-weight: 600; color: #6b7280; }
+.m-info p { font-size: 11px; color: #6b7280; margin-top: 4px; font-weight: 500; white-space: nowrap; }
+
+.scan-result-container {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #f3f4f6;
+    flex-grow: 1;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.empty-state { text-align: center; padding: 30px 20px; }
+.empty-icon-wrap {
+    width: 70px;
+    height: 70px;
+    background: #f3f4f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+    font-size: 32px;
+    color: #9ca3af;
+}
+.empty-state h4 { color: #111827; font-size: 18px; margin-bottom: 6px; font-weight: 700; }
+.empty-state p { color: #6b7280; font-size: 13.5px; max-width: 280px; margin: 0 auto; line-height: 1.5; }
+
+.result-header { margin-bottom: 20px; text-align: left; }
+.material-badge { display: inline-block; background: #ecfdf5; color: #059669; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; margin-bottom: 8px; }
+.result-header h3 { font-size: 20px; color: #111827; font-weight: 700; }
+
+.result-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.full-width-res { grid-column: 1 / -1; }
+
+.res-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+}
+
+.res-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+.bg-light-green { background: #ecfdf5; }
+.bg-light-red { background: #fef2f2; }
+.bg-light-blue { background: #eff6ff; }
+.bg-light-orange { background: #fffbeb; }
+.bg-light-teal { background: #f0fdfa; }
+
+.res-item strong { display: block; font-size: 13px; color: #111827; margin-bottom: 3px; font-weight: 600; }
+.res-item p { font-size: 12px; color: #6b7280; line-height: 1.4; margin: 0; }
+
+.btn-primary-full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    text-align: center;
+    background-color: #059669;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+}
+.btn-primary-full:hover { background-color: #047857; }
+
+/* =========================================
+   GENERAL SECTION TITLE
+   ========================================= */
+.section-title { margin-bottom: 30px; }
+.section-title.left-align { text-align: left; }
+.section-title h2 { font-size: 26px; color: #111827; font-weight: 700; margin-bottom: 6px; }
+.section-title p { color: #6b7280; font-size: 14.5px; max-width: 600px; line-height: 1.6; }
+
+/* =========================================
+   1. EDUKASI WAKTU TERURAI
+   ========================================= */
+.terurai-section { margin: 60px 0; }
+
+.terurai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding-top: 50px; 
+}
+
+.terurai-card {
+    position: relative;
+    background: #ffffff;
+    padding: 60px 25px 30px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.terurai-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 0px; 
+    background: #f8f9fa;
+    border-bottom-left-radius: 65px;
+    border-bottom-right-radius: 65px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.terurai-card:hover {
+    background-color: #059669;
+    border-color: #059669;
+    box-shadow: 0 15px 30px rgba(5, 150, 105, 0.08);
+    transform: translateY(-5px);
+}
+
+.terurai-card:hover::before {
+    height: 60px;
+}
+
+.terurai-card:hover h3,
+.terurai-card:hover p {
+    color: #ffffff;
+}
+
+.terurai-card:hover .duration-tag {
+    background-color: #ffffff;
+    color: #059669;
+}
+
+.terurai-img-wrapper {
+    position: absolute;
+    top: -50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 5px; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 3; 
+}
+
+.terurai-card:hover .terurai-img-wrapper {
+    top: -75px; 
+    transform: translateX(-50%) scale(1.05); 
+    box-shadow: 0 10px 25px rgba(5, 150, 105, 0.2);
+}
+
+.terurai-img-wrapper img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 3px solid #059669;
+}
+
+.terurai-card h3 { font-size: 18px; color: #111827; font-weight: 700; margin-bottom: 12px; transition: 0.4s; }
+.duration-tag { display: inline-block; background-color: #fef3c7; color: #d97706; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 50px; margin-bottom: 15px; transition: 0.4s; }
+.terurai-card p { font-size: 13.5px; color: #6b7280; line-height: 1.6; transition: 0.4s; }
+
+/* =========================================
+   2. 4 CARA MENGATASI SAMPAH
+   ========================================= */
+.four-r-section { margin: 60px 0; }
+
+.four-r-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.four-r-card {
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-radius: 18px;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+}
+
+.four-r-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: #e5e7eb; }
+
+.four-r-icon-wrapper { position: relative; width: 130px; height: 130px; margin: 0 auto 25px auto; }
+
+.four-r-curve {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: 50%; border: 2px dashed transparent;
+    border-top-color: #059669; border-left-color: #059669;
+    transform: rotate(15deg); transition: all 0.5s ease;
+}
+
+.four-r-card:hover .four-r-curve { transform: rotate(195deg); }
+
+.four-r-main-circle {
+    position: absolute; top: 15px; left: 15px; width: 100px; height: 100px;
+    background: #f8f9fa; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; color: #059669; z-index: 1; transition: 0.3s ease;
+}
+
+.four-r-card:hover .four-r-main-circle { background: #059669; color: #ffffff; }
+
+.four-r-number {
+    position: absolute; top: 5px; right: 15px; width: 35px; height: 35px;
+    background: #059669; color: #ffffff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; z-index: 2; box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+}
+
+.four-r-card h4 { font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 10px; }
+.four-r-card p { font-size: 13.5px; color: #6b7280; line-height: 1.6; }
+
+/* =========================================
+   ANIMASI ON-SCROLL (Selaras dengan dropoff)
+   ========================================= */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 992px) {
+    .workspace-grid { grid-template-columns: 1fr; align-items: auto; }
+    .scan-area-box, .ai-processing-inline { min-height: 400px; }
+}
+
+@media (max-width: 576px) {
+    .dashboard-page-wrapper { width: 92%; margin-top: 20px; }
+    .mini-stats-grid { grid-template-columns: 1fr; }
+    .result-details-grid { grid-template-columns: 1fr; }
+    .dash-header h2 { font-size: 24px; }
+    .dash-header { padding: 30px 20px; border-radius: 20px; }
+    .terurai-grid, .four-r-grid { gap: 20px; }
+    .terurai-card { margin-top: 40px; }
+    .terurai-img-wrapper { width: 80px; height: 80px; top: -40px; }
+    .terurai-card:hover .terurai-img-wrapper { top: -60px; }
+    .terurai-card::before { width: 110px; border-bottom-left-radius: 55px; border-bottom-right-radius: 55px;}
+    .hero-box {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 26px;
+        letter-spacing: -1px;
+    }
+
+    .hero-content p {
+        font-size: 13.5px;
+    }
+}
+

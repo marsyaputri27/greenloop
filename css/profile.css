@@ -1,0 +1,680 @@
+/* ==========================================================================
+   GREENLOOP - PROFILE PAGE STYLES
+   Perpaduan Warna: Hijau, Ungu, Oren, Biru
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding-top: 100px;
+    background-color: #f8f9fa; /* Latar belakang abu-abu terang */
+    color: #111827;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   STYLING NOTIFIKASI & PROFIL NAVBAR (Disamakan dengan Index & Komunitas)
+   ========================================================================== */
+.notif-dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
+.notif-btn { position: relative; background: none; border: none; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; height: 38px; width: 38px; }
+.notif-btn .bx-bell { font-size: 22px; color: #4b5563; transition: color 0.2s ease; display: block; line-height: 1; }
+.notif-btn:hover .bx-bell, .notif-dropdown:hover .notif-btn .bx-bell { color: #059669; }
+.notif-badge { position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background-color: #ef4444; border-radius: 50%; border: 2px solid #ffffff; }
+
+.notif-menu { display: none; position: absolute; top: 100%; right: -20px; width: 320px; background-color: #ffffff; box-shadow: 0 15px 35px rgba(0,0,0,0.12); border-radius: 20px; padding: 15px 0; z-index: 1000; text-align: left; }
+.notif-header { display: flex; justify-content: space-between; align-items: center; padding: 0 20px 12px 20px; border-bottom: 1px solid #f3f4f6; }
+.notif-header h4 { font-size: 15px; font-weight: 700; color: #111827; margin: 0; }
+.notif-header a { font-size: 12px; color: #059669; text-decoration: none; font-weight: 500; }
+.notif-header a:hover { text-decoration: underline; }
+.notif-list { max-height: 250px; overflow-y: auto; }
+.notif-item { display: flex; gap: 12px; padding: 12px 20px; text-decoration: none; transition: background 0.2s; border-bottom: 1px solid #f9fafb; text-align: left; }
+.notif-item:hover { background-color: #f9fafb; }
+.notif-icon { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.notif-icon.bg-green { background-color: #d1fae5; color: #059669; }
+.notif-icon.bg-orange { background-color: #fef3c7; color: #d97706; }
+.notif-content p { font-size: 12px; color: #1f2937; font-weight: 500; line-height: 1.4; margin: 0 0 3px 0; text-align: left; }
+.notif-content span { font-size: 10px; color: #9ca3af; text-align: left; display: block; }
+.notif-footer { text-align: center; padding-top: 10px; }
+.notif-footer a { font-size: 12px; color: #4b5563; text-decoration: none; font-weight: 600; }
+.notif-footer a:hover { color: #059669; }
+.notif-dropdown:hover .notif-menu { display: block; }
+
+.user-profile-dropdown { position: relative; padding-bottom: 15px; margin-bottom: -15px; }
+.user-profile-btn { display: flex; align-items: center; gap: 8px; cursor: pointer; background: none; border: none; padding: 0; }
+.user-profile-btn img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid #e5e7eb; }
+.user-profile-btn .bx-chevron-down { color: #4b5563; font-size: 18px; transition: transform 0.3s ease; display: inline-block; }
+.profile-menu { display: none; position: absolute; top: 100%; right: 0; background-color: #ffffff; width: 210px; box-shadow: 0 15px 35px rgba(0,0,0,0.12); border-radius: 18px; padding: 12px 0; z-index: 1000; text-align: left; }
+.profile-user-info { padding: 5px 18px 12px 18px; }
+.profile-name { display: block; font-size: 14px; font-weight: 700; color: #111827; }
+.profile-email { display: block; font-size: 11px; color: #6b7280; }
+.profile-divider { height: 1px; background-color: #f3f4f6; margin-bottom: 5px; }
+.profile-menu a { display: flex; align-items: center; gap: 10px; padding: 10px 18px; text-decoration: none; font-size: 13px; color: #4b5563; transition: background 0.2s, color 0.2s; text-align: left; }
+.profile-menu a:hover { background-color: #f0fdf4; color: #059669; }
+.profile-menu a.logout:hover { background-color:#f0fdf4; color:#059669; }
+.user-profile-dropdown:hover .profile-menu { display: block; }
+.user-profile-dropdown:hover .user-profile-btn .bx-chevron-down { transform: rotate(180deg); }
+
+/* KONTEN UTAMA PROFIL */
+.profile-main-container {
+    max-width: 1200px; /* Diperlebar agar sejajar dengan navbar */
+    width: 95%;
+    margin: 20px auto 60px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* 1. HEADER PROFIL */
+.profile-header-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    position: relative;
+}
+
+.profile-banner {
+    height: 180px;
+    background: url('../assets/bersih.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.banner-overlay-shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(5, 150, 105, 0.4) 100%);
+}
+
+.profile-user-details {
+    padding: 0 30px 25px 30px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: -55px; /* Membuat avatar memotong banner */
+    position: relative;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #ffffff;
+    flex-shrink: 0;
+}
+
+.profile-avatar-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-avatar-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #ffffff; 
+    color: #000000; 
+    border: 2px solid #e5e7eb;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s ease, background 0.2s;
+}
+.edit-avatar-btn:hover { background: #f3f4f6; transform: scale(1.1); }
+
+.profile-meta {
+    flex: 1;
+    min-width: 240px;
+    margin-top: 55px; /* Mendorong teks turun sepenuhnya ke bawah area banner */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Mengelompokkan nama dan email agar rapat */
+    padding-bottom: 10px; /* Menyelaraskan teks dengan posisi tombol Edit Profil */
+}
+
+.name-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 6px; /* Jarak yang sangat pas (dekat) dengan teks email di bawahnya */
+}
+
+.profile-meta h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.role-badge {
+    background: #fef3c7;
+    color: #b45309;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #fde68a;
+}
+
+.email-text {
+    font-size: 13.5px;
+    color: #6b7280;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-actions-top {
+    padding-bottom: 10px; /* Menyeimbangkan posisi tombol di kanan */
+}
+
+.btn-edit-profile {
+    background: #ffffff; 
+    color: #111827;
+    border: 1px solid #d1d5db;
+    padding: 10px 22px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+.btn-edit-profile:hover {
+    background: #059669; 
+    color: #ffffff;
+    border-color: #059669;
+}
+
+
+/* 2. STATISTIK INTERAKTIF (Konten Ditengahkan) */
+.stats-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Membuat semua isi card berada di tengah secara horizontal */
+    text-align: center;  /* Teks menjadi rata tengah */
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+
+.stat-icon { 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 14px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 24px; 
+}
+.stat-green .stat-icon { background: #ecfdf5; color: #059669; }
+.stat-orange .stat-icon { background: #fffbeb; color: #f59e0b; }
+.stat-blue .stat-icon { background: #f0f9ff; color: #0284c7; }
+.stat-purple .stat-icon { background: #f5f3ff; color: #7c3aed; }
+
+.stat-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memastikan data teks di dalamnya juga di tengah */
+}
+
+.stat-data h3 { font-size: 26px; font-weight: 700; color: #111827; margin: 0; line-height: 1.1; }
+.stat-data p { font-size: 13px; color: #6b7280; margin: 4px 0 0 0; }
+
+.stat-badge-trend { 
+    font-size: 11px; 
+    font-weight: 600; 
+    padding: 4px 10px; 
+    border-radius: 6px; 
+    align-self: center; /* Menengahkan badge tren di bawah */
+}
+.text-green { color: #059669; background: #ecfdf5; }
+.text-orange { color: #f59e0b; background: #fffbeb; }
+.text-blue { color: #0284c7; background: #f0f9ff; }
+.text-purple { color: #7c3aed; background: #f5f3ff; }
+
+/* 3. SEKSI RIWAYAT UMUM (UNBOXED & BOXED) */
+.history-sections-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.history-section-unboxed {
+    display: flex;
+    flex-direction: column;
+}
+
+/* KELAS BARU UNTUK BUNGKUSAN CARD PUTIH (RIWAYAT SCAN) */
+.history-card-boxed {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.section-title-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 5px; 
+}
+
+.title-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-with-icon i { font-size: 24px; }
+.title-with-icon h3 { font-size: 18px; font-weight: 700; color: #111827; margin: 0; }
+
+.view-all-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+.view-all-link:hover { color: #059669; text-decoration: underline; }
+
+
+/* 4. RIWAYAT PEMBELIAN (PILL CARD DENGAN FOTO PRODUK) */
+.history-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.pill-activity-card {
+    background: #ffffff;
+    border: 1px solid #f3f4f6;
+    border-left-width: 6px; 
+    border-left-style: solid;
+    border-radius: 24px; 
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pill-activity-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.pill-activity-card.card-green { border-left-color: #3f6212; }
+.pill-activity-card.card-purple { border-left-color: #4338ca; }
+.pill-activity-card.card-blue { border-left-color: #3b82f6; }
+.pill-activity-card.card-orange { border-left-color: #f97316; }
+
+.pill-product-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+    flex-shrink: 0;
+}
+
+.pill-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pill-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pill-content p {
+    font-size: 12px;
+    font-weight: 700;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pill-right-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d1d5db; 
+    font-size: 24px;
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.pill-activity-card:hover .pill-right-arrow {
+    color: #9ca3af;
+    transform: translateX(4px);
+}
+
+
+/* 5. RIWAYAT SCAN & DROP-OFF (PROGRESS BAR MODEL NUTRISI) */
+.progress-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    background: transparent;
+    padding: 0 5px;
+}
+
+.progress-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.progress-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-label .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.progress-value {
+    font-size: 15px;
+    color: #6b7280;
+}
+.progress-value strong {
+    color: #111827;
+    font-weight: 700;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bg-purp { background-color: #6366f1; } 
+.bg-purp-light { background-color: #e0e7ff; }
+
+.bg-lime { background-color: #84cc16; }
+.bg-lime-light { background-color: #f7fee7; }
+
+.bg-gold { background-color: #eab308; }
+.bg-gold-light { background-color: #fef9c3; }
+
+.bg-sky { background-color: #3b82f6; }
+.bg-sky-light { background-color: #eff6ff; }
+
+.bg-red { background-color: #ef4444; }
+.bg-red-light { background-color: #fef2f2; }
+
+
+/* 6. RIWAYAT KOMUNITAS (GRID CARDS BARU) */
+.community-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.comm-grid-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.comm-grid-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.cgc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.cgc-header img, .cgc-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.cgc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.cgc-meta {
+    display: flex;
+    flex-direction: column;
+    font-size: 13.5px;
+    color: #4b5563;
+}
+.cgc-meta strong { color: #111827; }
+.cgc-meta span { font-size: 11px; color: #9ca3af; }
+
+.cgc-body {
+    flex: 1;
+}
+.cgc-body p {
+    font-size: 13px;
+    color: #374151;
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+    background: #f9fafb;
+    padding: 10px;
+    border-radius: 10px;
+    border-left: 3px solid #d1d5db;
+}
+
+.cgc-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+    color: #6b7280;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed #e5e7eb;
+}
+
+
+/* 7. ANIMASI ON-SCROLL */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .stats-overview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Penyesuaian Notifikasi & Profil Popup Mobile agar sinkron dengan Index */
+    .notif-dropdown { position: static; margin-bottom: 0; }
+    .notif-menu {
+        position: fixed; top: 80px; left: 50%; right: auto;
+        transform: translateX(-50%); width: 90%; max-width: 360px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    .notif-btn .bx-bell { margin-top: 15px; }
+    .notif-badge { top: 12px; }
+    
+    .user-profile-dropdown { pointer-events: none !important; }
+    .user-profile-btn { pointer-events: none !important; }
+    .profile-menu { display: none !important; }
+    .user-profile-btn .bx-chevron-down { display: none !important; pointer-events: none; }
+}
+
+@media (max-width: 600px) {
+    body { padding-top: 90px; }
+    .profile-main-container { width: 100%; padding: 0 16px; }
+    
+    .profile-user-details {
+        padding: 0 16px 20px 16px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-top: -50px;
+    }
+    
+    .profile-meta {
+        margin-top: 15px; 
+        align-items: center;
+    }
+    
+    .name-badge-row {
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    
+    .profile-actions-top {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .stats-overview-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Penyesuaian Pill Card untuk Mobile */
+    .pill-activity-card {
+        padding: 14px 16px;
+        border-radius: 20px;
+        gap: 14px;
+    }
+    .pill-product-img {
+        width: 44px;
+        height: 44px;
+    }
+    .pill-content h4 {
+        font-size: 14.5px;
+        white-space: normal;
+        line-height: 1.3;
+    }
+    .pill-content p {
+        font-size: 11px;
+    }
+    .title-with-icon h3 {
+        font-size: 16px;
+    }
+
+    /* Penyesuaian Progress bar mobile */
+    .progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .progress-value {
+        align-self: flex-end;
+        font-size: 13.5px;
+    }
+    .progress-label {
+        font-size: 14px;
+    }
+    
+    /* Penyesuaian Boxed Card (Riwayat Scan) di Mobile */
+    .history-card-boxed {
+        padding: 20px 16px; /* Padding lebih kecil untuk mobile */
+        border-radius: 16px;
+    }
+}
+

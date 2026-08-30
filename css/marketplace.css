@@ -1,0 +1,670 @@
+/* =========================================
+   MARKETPLACE THEME: MODERN, ROUNDED, CLEAN
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #111827;
+    margin: 0;
+    padding-top: 90px;
+}
+
+/* ==========================================================================
+   KONTEN UTAMA MARKETPLACE 
+   ========================================================================== */
+.market-main-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 40px auto 60px auto; 
+}
+
+/* -----------------------------------------
+   1. HERO SECTION (EcoMart)
+   ----------------------------------------- */
+.eco-hero {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.eco-hero-bg {
+    background-color: #059669; 
+    border-radius: 30px;
+    padding: 60px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 40px;
+}
+
+/* Sisi Kiri (Teks & Tombol) */
+.hero-left {
+    flex: 1.2;
+    z-index: 2;
+}
+
+.badge-unggulan {
+    background-color: #a7f3d0;
+    color: #065f46;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.giant-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1.5px;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 14.5px;
+    color: #e5e7eb;
+    line-height: 1.7;
+    margin: 0 0 30px 0;
+    max-width: 95%;
+}
+
+/* Kumpulan Tombol di Hero */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+    background-color: #ffffff;
+    color: #059669;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-hero-primary:hover {
+    background-color: #f3f4f6;
+    color: #047857;
+}
+
+.btn-hero-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 14.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Sisi Kanan (Gambar dan Widget Melayang) */
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+}
+
+.hero-person-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    display: block;
+}
+
+/* Widget Melayang */
+.floating-stats-card {
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.fs-icon {
+    width: 42px;
+    height: 42px;
+    background: #d1fae5;
+    color: #065f46;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.fs-text strong {
+    display: block;
+    font-size: 15px;
+    color: #111827;
+    font-weight: 700;
+}
+
+.fs-text span {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+
+/* -----------------------------------------
+   2. PROMO BANNERS
+   ----------------------------------------- */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 50px;
+}
+
+.promo-card {
+    border-radius: 24px;
+    padding: 25px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    min-height: 170px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+}
+
+/* MENGGANTI NAMA CLASS AGAR TIDAK KONFLIK DENGAN NAVBAR */
+.promo-bg-green { background: linear-gradient(135deg, #059669, #064e3b); }
+.promo-bg-purple { background: linear-gradient(135deg, #4f46e5, #312e81); }
+.promo-bg-yellow { background: linear-gradient(135deg, #f59e0b, #92400e); }
+
+.promo-content {
+    width: 65%;
+    z-index: 2;
+}
+
+.promo-content h3 {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+}
+
+.promo-content p {
+    font-size: 12px;
+    opacity: 0.9;
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+}
+
+.promo-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    color: #111827; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.promo-blob {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 140px;
+    height: 140px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.promo-blob img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* -----------------------------------------
+   3. PRODUCTS SECTION (HEADER & FILTER)
+   ----------------------------------------- */
+.section-title-wrapper {
+    margin-bottom: 20px;
+}
+
+.section-title-wrapper h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.filter-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.modern-search-bar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    width: 380px;
+    max-width: 100%;
+    transition: all 0.3s ease;
+}
+
+.modern-search-bar:focus-within {
+    border-color: #059669;
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.1);
+}
+
+.modern-search-bar i {
+    font-size: 20px;
+    color: #6b7280;
+    margin-right: 10px;
+}
+
+.modern-search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14.5px;
+    color: #111827;
+    background: transparent;
+}
+
+.category-pills-wrapper {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 5px;
+}
+
+.category-pills {
+    display: flex;
+    gap: 8px;
+}
+
+.cat-pill {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #4b5563;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.cat-pill:hover {
+    background: #f0fdf4;
+    color: #059669;
+    border-color: #f0fdf4;
+}
+
+.cat-pill.active {
+    background: #059669;
+    color: #ffffff;
+    border-color: #059669;
+}
+
+
+/* -----------------------------------------
+   4. PRODUCT GRID & CARDS
+   ----------------------------------------- */
+.modern-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.mod-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 14px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #f3f4f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.mod-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.mod-img {
+    width: 100%;
+    height: 175px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: #f9fafb;
+    position: relative; 
+}
+
+.mod-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.mod-card:hover .mod-img img {
+    transform: scale(1.05);
+}
+
+/* BADGES MELAYANG DI GAMBAR PRODUK */
+.card-point-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fef08a;
+    color: #854d0e;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.card-point-badge i {
+    color: #d97706;
+    font-size: 14px;
+}
+
+/* Teks Produk */
+.mod-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+}
+
+.mod-vendor {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0 0 10px 0;
+}
+
+.mod-price {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #111827;
+    flex-grow: 1;
+}
+
+.mod-price strong {
+    font-weight: 700;
+    color: #059669;
+}
+
+/* Tombol Detail */
+.btn-detail {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    padding: 8px 0;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-detail i {
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.btn-detail:hover {
+    background: #059669;
+    color: #ffffff;
+    border-color: #059669;
+}
+
+.btn-detail:hover i {
+    transform: translateX(4px);
+}
+
+
+/* -----------------------------------------
+   ANIMASI ON-SCROLL
+   ----------------------------------------- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* -----------------------------------------
+   RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
+   ----------------------------------------- */
+@media (max-width: 992px) {
+    .eco-hero-bg { 
+        padding: 40px 30px; 
+    }
+}
+
+@media (max-width: 768px) {
+    /* Penyesuaian Notifikasi & Profil Popup Mobile agar sinkron dengan Index (Dihapus dari marketplace.css karena sudah dihandle navbar.css) */
+}
+
+@media (max-width: 576px) {
+    .market-main-container {
+        width: 92%;
+        margin-top: 20px;
+    }
+    
+    /* 1. Menonaktifkan/menyembunyikan foto di Hero Section Mobile */
+    .hero-right {
+        display: none !important;
+    }
+
+    .eco-hero-bg {
+        padding: 30px 20px;
+        border-radius: 20px;
+        text-align: left; /* Teks rata kiri di mobile agar lebih rapi */
+    }
+
+    .giant-title {
+        font-size: 26px;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 13.5px;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .badge-unggulan {
+        margin-bottom: 12px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .btn-hero-primary, .btn-hero-secondary {
+        padding: 10px 20px;
+        font-size: 13.5px;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* 2. Promo Banners Responsif di Mobile */
+    .promo-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 35px;
+    }
+
+    .promo-card {
+        min-height: 140px;
+        padding: 20px;
+    }
+
+    .promo-content {
+        width: 75%;
+    }
+
+    .promo-content h3 {
+        font-size: 14px;
+    }
+
+    .promo-content p {
+        font-size: 11px;
+    }
+
+    /* 3. Menghilangkan scrollbar pada kategori pill namun tetap bisa digeser */
+    .category-pills-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .category-pills-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-controls-row {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .modern-search-bar {
+        padding: 10px 16px;
+    }
+
+    /* 4. Grid Produk Responsif (2 Kolom Rapi di Mobile) */
+    .modern-product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px;
+    }
+
+    .mod-card {
+        padding: 10px;
+        border-radius: 14px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mod-img {
+        height: 120px;
+        margin-bottom: 8px;
+    }
+
+    .mod-title {
+        font-size: 13px;
+        font-weight: 600;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .mod-vendor {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+
+    .mod-price {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .btn-detail {
+        padding: 6px 0;
+        font-size: 11.5px;
+        border-radius: 8px;
+    }
+
+    .card-point-badge {
+        font-size: 9.5px;
+        padding: 2px 6px;
+        top: 8px;
+        right: 8px;
+    }
+}

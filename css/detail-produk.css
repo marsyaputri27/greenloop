@@ -1,0 +1,434 @@
+/* =========================================
+   DETAIL PRODUK THEME (SIDE-BY-SIDE LAYOUT)
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #111827;
+    margin: 0;
+    padding-top: 90px;
+}
+
+.detail-main-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 40px auto 60px auto; 
+}
+
+/* 1. BREADCRUMB */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+.breadcrumb a {
+    color: #059669;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.breadcrumb .separator { color: #d1d5db; }
+.breadcrumb .current-page { font-weight: 500; color: #374151; }
+
+/* 2. WRAPPER UTAMA PRODUK */
+.product-detail-wrapper {
+    display: flex;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    gap: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border: 1px solid #f3f4f6;
+    margin-bottom: 40px;
+    align-items: stretch;
+}
+
+/* KIRI: GALERI GAMBAR */
+.product-gallery-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.main-image-box {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f3f4f6;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+.thumbnail-row {
+    display: flex;
+    gap: 8px;
+}
+.thumb-box {
+    flex: 1;
+    height: 86px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.thumb-box img { width: 100%; height: 100%; object-fit: cover; }
+.thumb-box:hover, .thumb-box.active { border-color: #059669; opacity: 1; }
+
+/* KANAN: INFO PRODUK */
+.product-info-section {
+    flex: 1.35;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.badge-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.badge-stock {
+    background: #ecfdf5;
+    color: #059669;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.product-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+}
+.product-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e5e7eb;
+}
+.meta-item { font-size: 13.5px; color: #6b7280; display: flex; align-items: center; gap: 6px; }
+.text-yellow { color: #f59e0b; }
+
+/* Deskripsi Teks Produk */
+.product-description {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+/* Quick Features */
+.quick-features {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.feature-item {
+    flex: 1;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.feat-icon { font-size: 22px; color: #059669; margin-bottom: 4px; }
+.feat-text { font-size: 11.5px; font-weight: 600; color: #4b5563; }
+
+/* METODE PEMBAYARAN INTERAKTIF */
+.payment-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+.payment-selector {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.pay-card { flex: 1; position: relative; cursor: pointer; }
+.pay-card input { position: absolute; opacity: 0; cursor: pointer; }
+.pay-card-content {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+.pay-type { font-size: 12.5px; color: #6b7280; margin-bottom: 3px; display: flex; align-items: center; gap: 5px; }
+.pay-amount { font-size: 16px; font-weight: 700; color: #111827; }
+.text-green { color: #059669; }
+
+.pay-card input:checked ~ .pay-card-content { border-color: #059669; background: #ecfdf5; }
+.pay-card input:checked ~ .pay-card-content .pay-type { color: #059669; font-weight: 600; }
+
+/* CONTAINER BAWAH: TOMBOL AKSI & CS */
+.action-bottom-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.btn-checkout-dynamic {
+    flex: 1;
+    width: 100%;
+    padding: 14px 15px;
+    border-radius: 50px;
+    border: none;
+    background: #059669;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+.btn-checkout-dynamic:hover { background: #047857; }
+.btn-checkout-dynamic.mode-uang { background: #111827; }
+.btn-checkout-dynamic.mode-uang:hover { background: #1f2937; }
+
+.contact-cs-inline {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f8fafc;
+    padding: 10px 14px;
+    border-radius: 50px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+.contact-cs-inline:hover {
+    border-color: #cbd5e1;
+    background: #f1f5f9;
+}
+.contact-cs-icon {
+    background: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    flex-shrink: 0;
+}
+.contact-cs-icon i {
+    font-size: 18px;
+    color: #4f46e5;
+}
+.contact-cs-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.cs-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.1;
+}
+.cs-link {
+    font-size: 12px;
+    color: #4f46e5;
+    text-decoration: underline;
+    font-weight: 500;
+    line-height: 1.1;
+}
+.cs-link:hover { color: #3730a3; }
+
+
+/* 3. GOOGLE REVIEWS SECTION */
+.google-reviews-section {
+    background: #ffffff; 
+    padding: 35px; 
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.gr-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.gr-header-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.text-purple {
+    color: #4f46e5;
+    font-size: 24px;
+}
+
+.gr-slider-controls {
+    display: flex;
+    gap: 8px;
+}
+.slider-btn {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    color: #374151;
+    transition: all 0.2s ease;
+}
+.slider-btn:hover { background: #f3f4f6; color: #111827; }
+
+.gr-cards-wrapper {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+.gr-cards-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.gr-card {
+    min-width: 480px;
+    background: rgba(5, 150, 105, 0.08); 
+    border-radius: 14px;
+    padding: 22px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    border: 1px solid rgba(5, 150, 105, 0.1);
+}
+.gr-user-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.gr-card-content { display: flex; flex-direction: column; }
+.gr-user-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.gr-user-header strong { font-size: 15.5px; font-weight: 700; color: #111827; } 
+.gr-stars { color: #fbbc04; font-size: 14px; }
+.gr-review-text { font-size: 14px; color: #4b5563; font-style: italic; line-height: 1.5; margin: 0; } 
+
+
+/* 4. PRODUK SERUPA */
+.related-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #111827; }
+.modern-product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.mod-card { background: #ffffff; border-radius: 16px; padding: 14px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f3f4f6; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+.mod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 25px rgba(0,0,0,0.06); }
+.mod-img { width: 100%; height: 160px; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #f9fafb; position: relative; }
+.mod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.mod-card:hover .mod-img img { transform: scale(1.05); }
+.card-point-badge { position: absolute; top: 10px; right: 10px; background: #fef08a; color: #854d0e; padding: 3px 10px; border-radius: 50px; font-size: 11.5px; font-weight: 700; display: flex; align-items: center; gap: 3px; z-index: 2; box-shadow: 0 3px 6px rgba(0,0,0,0.05); }
+.card-point-badge i { color: #d97706; font-size: 13px; }
+.mod-title { font-size: 15px; font-weight: 700; color: #111827; margin: 0 0 4px 0; line-height: 1.3; }
+.mod-vendor { font-size: 11.5px; color: #6b7280; margin: 0 0 10px 0; }
+.mod-price { font-size: 15px; margin-bottom: 15px; color: #111827; flex-grow: 1; }
+.mod-price strong { font-weight: 700; color: #059669; }
+.btn-detail { background: transparent; border: 1px solid #d1d5db; color: #111827; padding: 8px 0; border-radius: 8px; font-size: 12.5px; font-weight: 600; text-align: center; text-decoration: none; transition: all 0.2s ease; }
+.btn-detail:hover { background: #059669; color: #ffffff; border-color: #059669; }
+
+/* ANIMASI ON-SCROLL */
+.animate-on-scroll { opacity: 0; transform: translateY(15px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
+   ========================================= */
+@media (max-width: 900px) {
+    .product-detail-wrapper { flex-direction: column; padding: 18px; gap: 20px;}
+    .main-image-box { height: auto; aspect-ratio: 1/1; }
+    .quick-features { flex-direction: column; gap: 8px; }
+    .payment-selector { flex-direction: column; }
+    .action-bottom-row { flex-direction: column; }
+    .btn-checkout-dynamic, .contact-cs-inline { width: 100%; border-radius: 50px; }
+    .google-reviews-section { padding: 25px 18px; } 
+    .gr-card { min-width: 85%; }
+}
+
+@media (max-width: 576px) {
+    .detail-main-container {
+        width: 92%;
+        margin-top: 20px;
+    }
+
+    /* Memastikan Grid Produk Serupa Menjadi 2 Kolom ke Samping di HP */
+    .modern-product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .mod-card {
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .mod-img {
+        height: 120px;
+    }
+
+    .mod-title {
+        font-size: 13px;
+    }
+
+    .mod-price {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .btn-detail {
+        padding: 6px 0;
+        font-size: 11.5px;
+    }
+}
+
