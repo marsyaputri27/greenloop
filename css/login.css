@@ -275,44 +275,80 @@ h1 { font-weight: 700; color: var(--text-dark); margin-bottom: 20px; font-size: 
 @media (max-width: 768px) {
     .container { width: 90vw; min-height: 680px; height: auto; }
     
-    /* 1. ATUR TINGGI & POSISI FORM SAAT LOGIN (Panel Hijau di ATAS lebih ringkas) */
+    /* Perbaikan Posisi Form Container secara umum */
     .form-container { 
         width: 100%; 
-        height: 65%; /* Form diberi ruang lebih banyak */
-        top: 28%;    /* Form dimulai lebih ke atas */
+        height: 70%; /* Beri ruang sedikit lebih besar */
         left: 0 !important; 
     }
-    #registerForm{
-        margin-top: 20px;
+
+    /* --- PERBAIKAN SPASING KHUSUS LOGIN (SIGN IN) AGAR TIDAK MEPET --- */
+    /* 1. Turunkan posisi form Login agar tidak tertutup overlay hijau di atas */
+    .sign-in-container {
+        top: 35%; /* Diubah dari 28% ke 35% agar ada jarak dari panel hijau */
+        z-index: 2;
     }
     
-    .sign-in-container { left: 0; z-index: 2; }
-    .container.right-panel-active .sign-in-container { transform: translateY(55%); opacity: 0; }
+    /* 2. Beri jarak spesifik di dalam Form Login menggunakan selector yang kuat */
+    .sign-in-container form h1 {
+        margin-top: -80px;    /* Jarak tambahan di atas judul */
+        margin-bottom: 10px; /* Jarak antara judul dan input pertama */
+    }
 
-    /* 2. ATUR TINGGI & POSISI FORM SAAT REGISTER (Panel Hijau di ATAS lebih turun) */
-    .sign-up-container { left: 0; top: 0; opacity: 0; z-index: 1; }
+    .sign-in-container form .input-group {
+        margin: 12px 0; /* Jarak antar input field diperbesar (atas-bawah) */
+    }
+
+    .sign-in-container form .forgot-pass {
+        margin: 15px 0 25px 0; /* Jarak tombol lupa sandi diperbesar */
+    }
+
+    .sign-in-container form .social-text {
+        margin: 30px 0 15px 0; /* Jarak sebelum teks sosial media diperbesar */
+    }
+    /* ----------------------------------------------------------------- */
+
+
+    /* Perbaikan Posisi Form Register (Disesuaikan agar tetap bagus) */
+    .sign-up-container { 
+        left: 0; 
+        top: 0; 
+        opacity: 0; 
+        z-index: 1; 
+        height: 72%; /* Register butuh space lebih untuk 3 input */
+    }
+    
+    #registerForm{
+        margin-top: 20px;
+        justify-content: flex-start; /* Mulai dari atas agar muat */
+        padding-top: 20px;
+    }
+
+    .container.right-panel-active .sign-in-container { transform: translateY(55%); opacity: 0; }
     .container.right-panel-active .sign-up-container { transform: translateY(0); opacity: 1; z-index: 5; }
 
-    /* 3. ATUR TINGGI PANEL HIJAU (OVERLAY) */
+    /* 3. ATUR TINGGI PANEL HIJAU (OVERLAY) - Disesuaikan agar sinkron dengan spacing baru */
     .overlay-container { 
         left: 0; 
         width: 100%; 
-        height: 25%; /* Tinggi panel hijau dikecilkan dari 40% ke 35% agar form Login punya banyak space */
+        height: 30%; /* Sedikit diperbesar dari 25% agar lengkungan bagus */
+        top: 0;
         border-radius: 0 0 60px 60px; 
     }
     
     .container.right-panel-active .overlay-container { animation: geserKeBawah 0.7s ease-in-out forwards; }
     .container.left-panel-active .overlay-container { animation: geserKeAtas 0.7s ease-in-out forwards; }
 
+    /* Perbaikan Keyframes agar posisi akhir sinkron */
     @keyframes geserKeAtas { 
-        0% { top: 65%; height: 35%; border-radius: 60px 60px 0 0; } 
-        50% { top: 15%; height: 65%; border-radius: 30px; } 
-        100% { top: 0%; height: 35%; border-radius: 0 0 60px 60px; } 
+        0% { top: 72%; height: 28%; border-radius: 60px 60px 0 0; } 
+        50% { top: 25%; height: 50%; border-radius: 30px; } 
+        100% { top: 0%; height: 30%; border-radius: 0 0 60px 60px; } /* Kembali ke posisi Login (Top) */
     }
     @keyframes geserKeBawah { 
-        0% { top: 0%; height: 35%; border-radius: 0 0 60px 60px; } 
-        50% { top: 15%; height: 65%; border-radius: 30px; } 
-        100% { top: 72%; height: 28%; border-radius: 60px 60px 0 0; } /* Saat register aktif, panel hijau turun ke bawah (di 65%) */
+        0% { top: 0%; height: 30%; border-radius: 0 0 60px 60px; } /* Mulai dari posisi Login */
+        50% { top: 25%; height: 50%; border-radius: 30px; } 
+        100% { top: 72%; height: 28%; border-radius: 60px 60px 0 0; } /* Ke posisi Register (Bottom) */
     }
 
     .overlay { width: 100%; height: 200%; left: 0; top: -100%; transform: translateY(0); }
